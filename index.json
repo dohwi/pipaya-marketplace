@@ -16,6 +16,19 @@
       }
     },
     {
+      "id": "ask-user",
+      "kind": "server",
+      "name": "Ask User",
+      "description": "Lets the agent ask you a question (with options and a recommended choice) and wait for your answer.",
+      "version": "0.1.0",
+      "author": "dohwi",
+      "license": "MIT",
+      "source": {
+        "type": "path",
+        "path": "extensions/ask-user"
+      }
+    },
+    {
       "id": "quota-monitor",
       "kind": "client",
       "name": "Quota Monitor",

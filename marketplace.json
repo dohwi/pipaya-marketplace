@@ -3,6 +3,7 @@
   "description": "Community extensions for pipaya",
   "extensions": [
     { "id": "guard", "path": "extensions/guard" },
+    { "id": "ask-user", "path": "extensions/ask-user" },
     {
       "id": "quota-monitor",
       "repo": "dohwi/pipaya-extension-quota-monitor",

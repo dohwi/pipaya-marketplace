@@ -1,0 +1,8 @@
+{
+  "name": "ask-user",
+  "version": "0.1.0",
+  "description": "Lets the agent ask you a question (with options and a recommended choice) and wait for your answer.",
+  "license": "MIT",
+  "author": "dohwi",
+  "pipaya": { "title": "Ask User" }
+}
