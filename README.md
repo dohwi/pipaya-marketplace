@@ -1,34 +1,80 @@
-# pipaya-marketplace
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset=".github/assets/banner-dark.svg" />
+    <img src=".github/assets/banner.svg" alt="pipaya marketplace" width="100%" />
+  </picture>
 
-A public catalog of [pipaya](https://github.com/dohwi/pipaya) extensions. One git repo: `marketplace.json` is the index, server extensions live in `extensions/<id>/`, client extensions are linked from their own repos.
+  <p><b>English</b> · <a href="README.ko.md">한국어</a></p>
 
-> Server extensions run **with the server's full privileges**. Read the code before installing.
+  <p>
+    <a href="https://github.com/dohwi/pipaya" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/Made_for-pipaya-F08A24?style=flat-square" alt="pipaya" /></a>
+    <a href="https://bun.sh" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/Bun-1.3-000000?style=flat-square&logo=bun&logoColor=white" alt="Bun" /></a>
+    <a href="https://www.typescriptlang.org" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" /></a>
+    <a href="https://github.com/dohwi/pipaya-marketplace/actions/workflows/validate.yml" target="_blank" rel="noreferrer"><img src="https://img.shields.io/github/actions/workflow/status/dohwi/pipaya-marketplace/validate.yml?branch=main&style=flat-square&label=validate" alt="validate" /></a>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="MIT License" /></a>
+  </p>
+</div>
 
-## Use
+The public catalog of [pipaya](https://github.com/dohwi/pipaya) extensions. One git repository: `marketplace.json` is the index, server extensions live in `extensions/`, client extensions are linked from their own repositories.
+
+> [!WARNING]
+> Server extensions run **with the server's full privileges**. Read the code before you install one.
+
+## Catalog
+
+| Extension | Kind | Version | What it does |
+|---|---|---|---|
+| [guard](extensions/guard) | server | 0.1.0 | Blocks destructive shell commands (`rm -rf /`, `mkfs`, fork bombs) before they run |
+| [quota-monitor](https://github.com/dohwi/pipaya-extension-quota-monitor) | client | 0.4.1 | Claude, GPT and Antigravity quota gauges in the navbar |
+
+## Features
+
+- **Two kinds**: `server` extensions (hooks, tools, `/commands`) and `client` extensions (UI packages)
+- **Single index**: one validated `marketplace.json`, no registry service to run
+- **Reviewed in CI**: duplicate ids, semver, paths and https sources are checked on every PR
+- **Plain CLI**: `list`, `install`, `remove`; no dependencies besides Bun
+
+## Install an extension
+
+Requires [Bun](https://bun.sh).
 
 ```bash
 git clone https://github.com/dohwi/pipaya-marketplace && cd pipaya-marketplace
+
 bun scripts/market.ts list
 bun scripts/market.ts install guard          # copies to ~/.pipaya/extensions/guard
 curl -X POST -H "Authorization: Bearer $ADMIN_TOKEN" http://<server>/server-extensions/reload
-bun scripts/market.ts install quota-monitor  # client: saves quota-monitor.json, import it in the pipaya UI
+
+bun scripts/market.ts install quota-monitor  # saves quota-monitor.json, import it in the pipaya app
 bun scripts/market.ts remove guard
 ```
 
-## Layout
+Set `PIPAYA_MARKET_URL` to a raw `marketplace.json` URL to read a remote catalog (server extensions still need a local clone).
+
+## Catalog format
+
+| Field | Meaning |
+|---|---|
+| `id` | lowercase letters, digits, dashes; unique |
+| `kind` | `server` or `client` |
+| `version` | semver; bump it on every change |
+| `license` | required |
+| `source` | `{ "type": "path", "path": "extensions/<id>" }` (server) or `{ "type": "url", "url": "https://…" }` (client, built package) |
+
+## Project structure
 
 ```
-marketplace.json        catalog (validated in CI)
-extensions/<id>/        server extensions (index.ts or package.json with "pipaya.extensions")
-scripts/                market.ts CLI, validate.ts, tests
+pipaya-marketplace/
+├── marketplace.json      # the catalog
+├── extensions/<id>/      # server extensions (index.ts)
+├── scripts/              # market.ts CLI, validate.ts, tests
+└── .github/              # CI and README assets
 ```
 
-Catalog entry: `id`, `kind` (`server` | `client`), `name`, `description`, `version` (semver), `license`, `source`.
-- `{ "type": "path", "path": "extensions/<id>" }` server only, code lives here.
-- `{ "type": "url", "url": "https://…/<id>.json" }` client only, a built package from the author's repo.
+## Contributing
 
-## Maintaining
+Add your extension and an entry to `marketplace.json`, run `bun test && bun scripts/validate.ts`, then open a PR. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-- Every change that touches an extension bumps its `version` in `marketplace.json` (patch for fixes).
-- CI runs `bun test` and `bun scripts/validate.ts`; both must pass before merge.
-- Submit via PR, see [CONTRIBUTING.md](CONTRIBUTING.md).
+## License
+
+[MIT](LICENSE)
