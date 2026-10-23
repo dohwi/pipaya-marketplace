@@ -25,6 +25,21 @@ export async function buildIndex(src: Listings, o: { root?: string; fetch?: type
 			});
 			continue;
 		}
+		const headers: Record<string, string> = { Accept: "application/vnd.github+json", ...(o.token ? { Authorization: `Bearer ${o.token}` } : {}) };
+		if (l.kind === "server") {
+			const raw = await get(`https://raw.githubusercontent.com/${l.repo}/${l.ref}/package.json`);
+			if (!raw.ok) throw new Error(`${l.id}: cannot read package.json of ${l.repo}@${l.ref} (${raw.status})`);
+			const pkg = JSON.parse(await raw.text());
+			const at = await get(`https://api.github.com/repos/${l.repo}/commits/${l.ref}`, { headers });
+			const sha = at.ok ? ((await at.json()) as { sha?: string }).sha : undefined;
+			if (sha !== l.commit) throw new Error(`${l.id}: ${l.ref} points to ${sha ?? "an unknown commit"}, listed ${l.commit} (run scripts/pin.ts)`);
+			extensions.push({
+				id: l.id, kind: "server", name: pkg.pipaya?.title ?? pkg.name ?? l.id, description: pkg.description ?? "", version: pkg.version,
+				author: authorName(pkg.author) ?? l.repo!.split("/")[0], ...(pkg.license ? { license: pkg.license } : {}),
+				homepage: `https://github.com/${l.repo}`, source: { type: "git", repo: l.repo!, ref: l.ref!, commit: l.commit! },
+			});
+			continue;
+		}
 		const url = `https://raw.githubusercontent.com/${l.repo}/${l.ref}/dist/${l.id}.json`;
 		const res = await get(url);
 		if (!res.ok) throw new Error(`${l.id}: cannot download ${url} (${res.status})`);
@@ -33,7 +48,6 @@ export async function buildIndex(src: Listings, o: { root?: string; fetch?: type
 		if (got !== l.sha256) throw new Error(`${l.id}: sha256 mismatch (listed ${l.sha256}, got ${got})`);
 		const m = JSON.parse(text).manifest;
 		if (m?.id !== l.id) throw new Error(`${l.id}: package id is "${m?.id}"`);
-		const headers: Record<string, string> = { Accept: "application/vnd.github+json", ...(o.token ? { Authorization: `Bearer ${o.token}` } : {}) };
 		const lr = await get(`https://api.github.com/repos/${l.repo}/license?ref=${l.ref}`, { headers });
 		const spdx = lr.ok ? ((await lr.json()) as { license?: { spdx_id?: string } }).license?.spdx_id : undefined;
 		extensions.push({

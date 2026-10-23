@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 // Usage: bun scripts/market.ts <list | install <id> | remove <id>> [--dir <extensions dir>] [--out <file>]
-import { cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
-import { homedir } from "node:os";
+import { cpSync, existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { homedir, tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { type Catalog, ROOT, loadIndex } from "./lib.ts";
 
@@ -35,6 +35,24 @@ if (cmd === "list") {
 		rmSync(to, { recursive: true, force: true });
 		cpSync(join(ROOT, e.source.path), to, { recursive: true });
 		console.log(`installed ${e.id}@${e.version} → ${to}\nreload: POST /server-extensions/reload (admin token)`);
+	} else if (e.source.type === "git") {
+		// One repository per extension: fetch the tag, refuse it when it no longer points at the commit the catalog lists.
+		const { repo, ref, commit } = e.source;
+		const tmp = mkdtempSync(join(tmpdir(), "pipaya-ext-"));
+		try {
+			const git = (...a: string[]) => Bun.spawnSync(["git", ...a], { stdout: "pipe", stderr: "pipe", env: { ...process.env, GIT_TERMINAL_PROMPT: "0" } });
+			const cloned = git("clone", "--quiet", "--depth", "1", "--branch", ref, `https://github.com/${repo}.git`, tmp);
+			if (cloned.exitCode !== 0) { console.error(`clone failed: ${cloned.stderr.toString().trim()}`); process.exit(1); }
+			const head = git("-C", tmp, "rev-parse", "HEAD").stdout.toString().trim();
+			if (head !== commit) { console.error(`${repo}@${ref} is at ${head}, the catalog lists ${commit}; refusing to install`); process.exit(1); }
+			const to = join(dir, e.id);
+			mkdirSync(dir, { recursive: true });
+			rmSync(to, { recursive: true, force: true });
+			cpSync(tmp, to, { recursive: true, filter: (f) => !/(^|\/)(\.git|node_modules|tests)(\/|$)/.test(f.slice(tmp.length)) });
+			console.log(`installed ${e.id}@${e.version} (${commit.slice(0, 7)}) → ${to}\nreload: POST /server-extensions/reload (admin token)`);
+		} finally {
+			rmSync(tmp, { recursive: true, force: true });
+		}
 	} else {
 		const file = resolve(out ?? `${e.id}.json`);
 		const res = await fetch(e.source.url);

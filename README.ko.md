@@ -15,7 +15,7 @@
   </p>
 </div>
 
-[pipaya](https://github.com/dohwi/pipaya) 확장의 공개 카탈로그입니다. git 저장소 하나로 운영합니다. `marketplace.json`이 색인이고, 서버 확장은 `extensions/`에 있으며, 클라이언트 확장은 각자의 저장소에서 가져옵니다.
+[pipaya](https://github.com/dohwi/pipaya) 확장의 공개 카탈로그입니다. `marketplace.json`이 색인이고, 확장은 각자의 GitHub 저장소(`pipaya-extension-<id>`)에서 가져옵니다. 간단한 서버 확장은 이 저장소의 `extensions/`에 둘 수도 있습니다.
 
 > [!WARNING]
 > 서버 확장은 **서버의 모든 권한으로** 실행됩니다. 설치하기 전에 코드를 꼭 읽어 보세요.
@@ -25,7 +25,10 @@
 | 확장 | 종류 | 버전 | 설명 |
 |---|---|---|---|
 | [guard](extensions/guard) | server | 0.1.0 | 위험한 셸 명령(`rm -rf /`, `mkfs`, 포크 폭탄)을 실행 전에 차단 |
-| [ask-user](extensions/ask-user) | server | 0.1.0 | 에이전트가 선택지·추천과 함께 질문하고 답을 기다리게 함 |
+| [ask-user](https://github.com/dohwi/pipaya-extension-ask-user) | server | 0.1.0 | 에이전트가 선택지·추천과 함께 질문하고 답을 기다리게 함 |
+| [peer-tools](https://github.com/dohwi/pipaya-extension-peer-tools) | server | 0.1.0 | 에이전트가 서로의 대화에 메시지를 보내고(`peer_send`) 읽게 함(`peer_read`) |
+| [prompt-templates](https://github.com/dohwi/pipaya-extension-prompt-templates) | server | 0.1.0 | 긴 프롬프트를 Markdown 파일로 저장해 `/prompt:이름`으로 호출 |
+| [session-retention](https://github.com/dohwi/pipaya-extension-session-retention) | server | 0.1.0 | 한동안 쓰지 않은 대화를 자동 삭제(기본은 꺼짐) |
 | [quota-monitor](https://github.com/dohwi/pipaya-extension-quota-monitor) | client | 0.4.1 | Claude, GPT, Antigravity 잔량 게이지를 navbar에 표시 |
 
 ## 특징
@@ -59,12 +62,13 @@ bun scripts/market.ts remove guard
 `marketplace.json`에는 확장이 **어디에 있는지**만 적습니다. 이름, 버전, 설명, 작성자는 확장 자신의 파일에서, 라이선스는 GitHub 저장소에서 읽어 옵니다.
 
 ```json
+{ "id": "my-ext", "kind": "server", "repo": "me/pipaya-extension-my-ext", "ref": "v1.0.0", "commit": "…" }
+{ "id": "my-ui", "repo": "me/pipaya-extension-my-ui", "ref": "v1.0.0", "sha256": "…" }
 { "id": "guard", "path": "extensions/guard" }
-{ "id": "my-ext", "repo": "me/pipaya-extension-my-ext", "ref": "v1.0.0", "sha256": "…" }
 ```
 
-- **서버 확장**: `extensions/<id>/`에 두고 `package.json`(`name`, `version`, `description`, `license`, `author`)을 함께 둡니다.
-- **클라이언트 확장**: 저장소에 `dist/<id>.json`이 담긴 태그를 만든 뒤 `bun scripts/pin.ts my-ext v1.0.0`으로 태그와 `sha256`을 기록합니다. `ref`는 태그나 커밋이어야 하며 브랜치는 안 됩니다.
+- **서버 확장**: 확장마다 GitHub 저장소 하나(`pipaya-extension-<id>`)를 만들고, 루트에 `index.ts`와 `package.json`(`name`, `version`, `description`, `license`, `author`)을 둡니다. 태그를 만든 뒤 `bun scripts/pin.ts my-ext v1.0.0`으로 태그가 가리키는 커밋을 기록합니다. 태그가 나중에 다른 커밋으로 옮겨지면 CI와 설치가 거부합니다. 이 저장소의 `extensions/<id>/`에 직접 두는 `path` 방식은 아주 작은 확장에만 씁니다.
+- **클라이언트 확장**: 저장소에 `dist/<id>.json`이 담긴 태그를 만든 뒤 `bun scripts/pin.ts my-ui v1.0.0`으로 태그와 `sha256`을 기록합니다. `ref`는 태그나 커밋이어야 하며 브랜치는 안 됩니다.
 - `bun scripts/build-index.ts`를 실행해 생성된 `index.json`을 커밋합니다. 앱이 이 파일을 읽고, 오래되면 CI가 실패합니다.
 
 ## 프로젝트 구조
