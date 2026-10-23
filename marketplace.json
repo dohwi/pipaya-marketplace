@@ -38,8 +38,8 @@
       "kind": "server",
       "repo": "dohwi/pipaya-extensions",
       "dir": "prompt-templates",
-      "ref": "prompt-templates-v0.1.1",
-      "commit": "b7a2633ff2fac0996e8b00306aca41ae336610f3"
+      "ref": "prompt-templates-v0.2.1",
+      "commit": "33f824ff8e8c55e5f94fb0ee09c0e8ccdcb9a1cc"
     },
     {
       "id": "session-retention",

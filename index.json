@@ -93,16 +93,16 @@
         "en": "Save a long prompt as a Markdown file and call it with `/prompt:name arguments`.",
         "ko": "긴 프롬프트를 Markdown 파일로 저장해 두고 `/prompt:이름 인자`로 불러 씁니다."
       },
-      "version": "0.1.1",
+      "version": "0.2.1",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/prompt-templates-v0.1.1/prompt-templates",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/prompt-templates-v0.2.1/prompt-templates",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
         "dir": "prompt-templates",
-        "ref": "prompt-templates-v0.1.1",
-        "commit": "b7a2633ff2fac0996e8b00306aca41ae336610f3"
+        "ref": "prompt-templates-v0.2.1",
+        "commit": "33f824ff8e8c55e5f94fb0ee09c0e8ccdcb9a1cc"
       }
     },
     {
