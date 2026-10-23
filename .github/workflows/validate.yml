@@ -11,3 +11,6 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - run: bun test
       - run: bun scripts/validate.ts
+      - run: bun scripts/build-index.ts --check
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

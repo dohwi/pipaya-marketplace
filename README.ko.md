@@ -30,8 +30,8 @@
 ## 특징
 
 - **두 종류**: `server` 확장(훅, 도구, `/명령`)과 `client` 확장(UI 패키지)
-- **단일 색인**: 검증되는 `marketplace.json` 하나뿐이고, 따로 운영할 레지스트리 서비스가 없음
-- **CI 검증**: 모든 PR에서 id 중복, semver, 경로, https 소스를 확인
+- **단일 색인**: 짧은 `marketplace.json`과 자동 생성되는 `index.json`뿐이고, 따로 운영할 레지스트리 서비스가 없음
+- **CI 검증**: 모든 PR에서 id 중복, 경로, 고정된 태그와 `sha256`을 확인하고 `index.json`이 원본과 일치해야 함
 - **단순한 CLI**: `list`, `install`, `remove`. Bun 외 의존성 없음
 
 ## 확장 설치
@@ -51,25 +51,29 @@ bun scripts/market.ts install quota-monitor  # quota-monitor.json 저장 후 pip
 bun scripts/market.ts remove guard
 ```
 
-`PIPAYA_MARKET_URL`에 `marketplace.json`의 raw URL을 넣으면 원격 카탈로그를 읽습니다. 서버 확장 설치에는 여전히 로컬 clone이 필요합니다.
+`PIPAYA_MARKET_URL`에 `index.json`의 raw URL을 넣으면 원격 카탈로그를 읽습니다. 서버 확장 설치에는 여전히 로컬 clone이 필요합니다.
 
-## 카탈로그 형식
+## 확장 추가
 
-| 필드 | 의미 |
-|---|---|
-| `id` | 소문자, 숫자, 대시. 고유해야 함 |
-| `kind` | `server` 또는 `client` |
-| `version` | semver. 변경할 때마다 올림 |
-| `license` | 필수 |
-| `source` | `{ "type": "path", "path": "extensions/<id>" }`(server) 또는 `{ "type": "url", "url": "https://…", "sha256": "…" }`(client, 빌드된 패키지. 설치 전 파일의 `sha256`을 확인) |
+`marketplace.json`에는 확장이 **어디에 있는지**만 적습니다. 이름, 버전, 설명, 작성자는 확장 자신의 파일에서, 라이선스는 GitHub 저장소에서 읽어 옵니다.
+
+```json
+{ "id": "guard", "path": "extensions/guard" }
+{ "id": "my-ext", "repo": "me/pipaya-extension-my-ext", "ref": "v1.0.0", "sha256": "…" }
+```
+
+- **서버 확장**: `extensions/<id>/`에 두고 `package.json`(`name`, `version`, `description`, `license`, `author`)을 함께 둡니다.
+- **클라이언트 확장**: 저장소에 `dist/<id>.json`이 담긴 태그를 만든 뒤 `bun scripts/pin.ts my-ext v1.0.0`으로 태그와 `sha256`을 기록합니다. `ref`는 태그나 커밋이어야 하며 브랜치는 안 됩니다.
+- `bun scripts/build-index.ts`를 실행해 생성된 `index.json`을 커밋합니다. 앱이 이 파일을 읽고, 오래되면 CI가 실패합니다.
 
 ## 프로젝트 구조
 
 ```
 pipaya-marketplace/
-├── marketplace.json      # 카탈로그
+├── marketplace.json      # 확장 위치 목록 (직접 작성)
+├── index.json            # 자동 생성: 이름, 버전, 라이선스
 ├── extensions/<id>/      # 서버 확장 (index.ts)
-├── scripts/              # market.ts CLI, validate.ts, 테스트
+├── scripts/              # market.ts CLI, build-index.ts, pin.ts, 테스트
 └── .github/              # CI, README 에셋
 ```
 

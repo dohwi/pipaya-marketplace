@@ -30,8 +30,8 @@ The public catalog of [pipaya](https://github.com/dohwi/pipaya) extensions. One 
 ## Features
 
 - **Two kinds**: `server` extensions (hooks, tools, `/commands`) and `client` extensions (UI packages)
-- **Single index**: one validated `marketplace.json`, no registry service to run
-- **Reviewed in CI**: duplicate ids, semver, paths and https sources are checked on every PR
+- **Single index**: a tiny `marketplace.json` plus a generated `index.json`, no registry service to run
+- **Reviewed in CI**: duplicate ids, paths, pinned tags and `sha256` are checked, and `index.json` must match its sources
 - **Plain CLI**: `list`, `install`, `remove`; no dependencies besides Bun
 
 ## Install an extension
@@ -51,25 +51,29 @@ bun scripts/market.ts install quota-monitor  # saves quota-monitor.json, import 
 bun scripts/market.ts remove guard
 ```
 
-Set `PIPAYA_MARKET_URL` to a raw `marketplace.json` URL to read a remote catalog (server extensions still need a local clone).
+Set `PIPAYA_MARKET_URL` to a raw `index.json` URL to read a remote catalog (server extensions still need a local clone).
 
-## Catalog format
+## Adding an extension
 
-| Field | Meaning |
-|---|---|
-| `id` | lowercase letters, digits, dashes; unique |
-| `kind` | `server` or `client` |
-| `version` | semver; bump it on every change |
-| `license` | required |
-| `source` | `{ "type": "path", "path": "extensions/<id>" }` (server) or `{ "type": "url", "url": "https://…", "sha256": "…" }` (client, built package; `sha256` of the file is checked before install) |
+`marketplace.json` only says **where** an extension lives. Name, version, description and author are read from the extension itself, and the license from its GitHub repository.
+
+```json
+{ "id": "guard", "path": "extensions/guard" }
+{ "id": "my-ext", "repo": "me/pipaya-extension-my-ext", "ref": "v1.0.0", "sha256": "…" }
+```
+
+- **Server extension**: put it in `extensions/<id>/` with a `package.json` (`name`, `version`, `description`, `license`, `author`).
+- **Client extension**: tag a release in your repo that contains `dist/<id>.json`, then run `bun scripts/pin.ts my-ext v1.0.0` to record the tag and its `sha256`. `ref` must be a tag or commit, never a branch.
+- Run `bun scripts/build-index.ts` and commit the generated `index.json` (the app reads it; CI fails when it is stale).
 
 ## Project structure
 
 ```
 pipaya-marketplace/
-├── marketplace.json      # the catalog
+├── marketplace.json      # where each extension lives (hand-written)
+├── index.json            # generated: names, versions, licenses
 ├── extensions/<id>/      # server extensions (index.ts)
-├── scripts/              # market.ts CLI, validate.ts, tests
+├── scripts/              # market.ts CLI, build-index.ts, pin.ts, tests
 └── .github/              # CI and README assets
 ```
 

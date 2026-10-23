@@ -3,17 +3,17 @@
 import { cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { join, resolve } from "node:path";
-import { type Catalog, ROOT, loadCatalog, validate } from "./lib.ts";
+import { type Catalog, ROOT, loadIndex } from "./lib.ts";
 
 const args = process.argv.slice(2);
 const flag = (n: string) => { const i = args.indexOf(n); return i >= 0 ? args.splice(i, 2)[1] : undefined; };
 const dir = resolve(flag("--dir") ?? join(homedir(), ".pipaya", "extensions"));
 const out = flag("--out");
 const [cmd, id] = args;
-const MARKET = process.env.PIPAYA_MARKET_URL; // set to a raw marketplace.json URL to use a remote catalog
+const MARKET = process.env.PIPAYA_MARKET_URL; // set to a raw index.json URL to use a remote catalog
 
 async function catalog(): Promise<Catalog> {
-	if (!MARKET) return loadCatalog();
+	if (!MARKET) return loadIndex();
 	return (await (await fetch(MARKET)).json()) as Catalog;
 }
 
@@ -30,7 +30,6 @@ if (cmd === "list") {
 	const e = find();
 	if (e.source.type === "path") {
 		if (MARKET) { console.error("path sources need a local checkout; run without PIPAYA_MARKET_URL"); process.exit(1); }
-		if (validate(c).length) { console.error("catalog is invalid"); process.exit(1); }
 		const to = join(dir, e.id);
 		mkdirSync(dir, { recursive: true });
 		rmSync(to, { recursive: true, force: true });
