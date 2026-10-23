@@ -1,8 +1,0 @@
-{
-  "name": "guard",
-  "version": "0.1.0",
-  "description": "Blocks destructive shell commands (rm -rf /, mkfs, fork bombs) before they run.",
-  "license": "MIT",
-  "author": "dohwi",
-  "pipaya": { "title": "Guard" }
-}

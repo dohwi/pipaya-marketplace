@@ -19,7 +19,7 @@ if (l.kind === "server") {
 	console.log(`${id} → ${ref} commit ${sha}\nnow run: bun scripts/build-index.ts`);
 	process.exit(0);
 }
-const url = `https://raw.githubusercontent.com/${l.repo}/${ref}/dist/${id}.json`;
+const url = `https://raw.githubusercontent.com/${l.repo}/${ref}/${l.dir ? `${l.dir}/` : ""}dist/${id}.json`;
 const res = await fetch(url);
 if (!res.ok) { console.error(`cannot download ${url} (${res.status})`); process.exit(1); }
 l.ref = ref;

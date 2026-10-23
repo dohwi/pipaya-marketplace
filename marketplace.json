@@ -4,41 +4,50 @@
   "extensions": [
     {
       "id": "guard",
-      "path": "extensions/guard"
+      "kind": "server",
+      "repo": "dohwi/pipaya-extensions",
+      "dir": "extensions/guard",
+      "ref": "guard-v0.1.0",
+      "commit": "0b89e7d3b6f5ac154009031ea32bb3c0b681063e"
     },
     {
       "id": "ask-user",
       "kind": "server",
-      "repo": "dohwi/pipaya-extension-ask-user",
-      "ref": "v0.1.0",
-      "commit": "42720b7fd4f10f7143fec23bc1a0866add502d73"
+      "repo": "dohwi/pipaya-extensions",
+      "dir": "extensions/ask-user",
+      "ref": "ask-user-v0.1.0",
+      "commit": "0b89e7d3b6f5ac154009031ea32bb3c0b681063e"
     },
     {
       "id": "quota-monitor",
-      "repo": "dohwi/pipaya-extension-quota-monitor",
-      "ref": "v0.4.1",
+      "repo": "dohwi/pipaya-extensions",
+      "dir": "extensions/quota-monitor",
+      "ref": "quota-monitor-v0.4.1",
       "sha256": "81f3a672262df96faf6f16a4cd6e453dad7c102e8ecb6524e19b87cb92fe078c"
     },
     {
       "id": "peer-tools",
       "kind": "server",
-      "repo": "dohwi/pipaya-extension-peer-tools",
-      "ref": "v0.1.0",
-      "commit": "c5924808c4c81127a0ba1574c8ef45d79ac37e3f"
+      "repo": "dohwi/pipaya-extensions",
+      "dir": "extensions/peer-tools",
+      "ref": "peer-tools-v0.1.0",
+      "commit": "0b89e7d3b6f5ac154009031ea32bb3c0b681063e"
     },
     {
       "id": "prompt-templates",
       "kind": "server",
-      "repo": "dohwi/pipaya-extension-prompt-templates",
-      "ref": "v0.1.0",
-      "commit": "b94b049c15c04d798aafebff421bec922b7934a6"
+      "repo": "dohwi/pipaya-extensions",
+      "dir": "extensions/prompt-templates",
+      "ref": "prompt-templates-v0.1.0",
+      "commit": "0b89e7d3b6f5ac154009031ea32bb3c0b681063e"
     },
     {
       "id": "session-retention",
       "kind": "server",
-      "repo": "dohwi/pipaya-extension-session-retention",
-      "ref": "v0.1.0",
-      "commit": "7b57f8b4f62c94edbfce3ef235dc8225c0338b5a"
+      "repo": "dohwi/pipaya-extensions",
+      "dir": "extensions/session-retention",
+      "ref": "session-retention-v0.1.0",
+      "commit": "0b89e7d3b6f5ac154009031ea32bb3c0b681063e"
     }
   ]
 }

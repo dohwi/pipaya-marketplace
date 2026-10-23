@@ -3,7 +3,7 @@
 import { cpSync, existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { homedir, tmpdir } from "node:os";
 import { join, resolve } from "node:path";
-import { type Catalog, ROOT, loadIndex } from "./lib.ts";
+import { type Catalog, loadIndex } from "./lib.ts";
 
 const args = process.argv.slice(2);
 const flag = (n: string) => { const i = args.indexOf(n); return i >= 0 ? args.splice(i, 2)[1] : undefined; };
@@ -28,16 +28,9 @@ if (cmd === "list") {
 	for (const e of c.extensions) console.log(`${e.id.padEnd(18)} ${e.kind.padEnd(7)} ${e.version.padEnd(8)} ${e.description}`);
 } else if (cmd === "install") {
 	const e = find();
-	if (e.source.type === "path") {
-		if (MARKET) { console.error("path sources need a local checkout; run without PIPAYA_MARKET_URL"); process.exit(1); }
-		const to = join(dir, e.id);
-		mkdirSync(dir, { recursive: true });
-		rmSync(to, { recursive: true, force: true });
-		cpSync(join(ROOT, e.source.path), to, { recursive: true });
-		console.log(`installed ${e.id}@${e.version} → ${to}\nreload: POST /server-extensions/reload (admin token)`);
-	} else if (e.source.type === "git") {
-		// One repository per extension: fetch the tag, refuse it when it no longer points at the commit the catalog lists.
-		const { repo, ref, commit } = e.source;
+	if (e.source.type === "git") {
+		// Fetch the tag (a whole repository, or one folder of a monorepo), refuse it when it no longer points at the commit the catalog lists.
+		const { repo, dir: sub, ref, commit } = e.source;
 		const tmp = mkdtempSync(join(tmpdir(), "pipaya-ext-"));
 		try {
 			const git = (...a: string[]) => Bun.spawnSync(["git", ...a], { stdout: "pipe", stderr: "pipe", env: { ...process.env, GIT_TERMINAL_PROMPT: "0" } });
@@ -45,10 +38,13 @@ if (cmd === "list") {
 			if (cloned.exitCode !== 0) { console.error(`clone failed: ${cloned.stderr.toString().trim()}`); process.exit(1); }
 			const head = git("-C", tmp, "rev-parse", "HEAD").stdout.toString().trim();
 			if (head !== commit) { console.error(`${repo}@${ref} is at ${head}, the catalog lists ${commit}; refusing to install`); process.exit(1); }
+			// a monorepo: install only this extension's folder
+			const from = sub ? join(tmp, sub) : tmp;
+			if (!existsSync(join(from, "package.json"))) { console.error(`${repo}@${ref} has no ${sub ?? "."}/package.json`); process.exit(1); }
 			const to = join(dir, e.id);
 			mkdirSync(dir, { recursive: true });
 			rmSync(to, { recursive: true, force: true });
-			cpSync(tmp, to, { recursive: true, filter: (f) => !/(^|\/)(\.git|node_modules|tests)(\/|$)/.test(f.slice(tmp.length)) });
+			cpSync(from, to, { recursive: true, filter: (f) => !/(^|\/)(\.git|node_modules|tests)(\/|$)/.test(f.slice(from.length)) });
 			console.log(`installed ${e.id}@${e.version} (${commit.slice(0, 7)}) → ${to}\nreload: POST /server-extensions/reload (admin token)`);
 		} finally {
 			rmSync(tmp, { recursive: true, force: true });

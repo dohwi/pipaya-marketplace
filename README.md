@@ -15,7 +15,7 @@
   </p>
 </div>
 
-The public catalog of [pipaya](https://github.com/dohwi/pipaya) extensions. `marketplace.json` is the index; every extension lives in its own GitHub repository (`pipaya-extension-<id>`). A tiny server extension may also sit in this repository's `extensions/`.
+The public catalog of [pipaya](https://github.com/dohwi/pipaya) extensions. `marketplace.json` is the index; each extension is listed as one folder of a GitHub repository. The default ones all live in one repository, [pipaya-extensions](https://github.com/dohwi/pipaya-extensions).
 
 > [!WARNING]
 > Server extensions run **with the server's full privileges**. Read the code before you install one.
@@ -24,18 +24,18 @@ The public catalog of [pipaya](https://github.com/dohwi/pipaya) extensions. `mar
 
 | Extension | Kind | Version | What it does |
 |---|---|---|---|
-| [guard](extensions/guard) | server | 0.1.0 | Blocks destructive shell commands (`rm -rf /`, `mkfs`, fork bombs) before they run |
-| [ask-user](https://github.com/dohwi/pipaya-extension-ask-user) | server | 0.1.0 | Lets the agent ask you a question (options, recommended choice) and wait for the answer |
-| [peer-tools](https://github.com/dohwi/pipaya-extension-peer-tools) | server | 0.1.0 | Lets agents message (`peer_send`) and read (`peer_read`) each other's chats |
-| [prompt-templates](https://github.com/dohwi/pipaya-extension-prompt-templates) | server | 0.1.0 | Save a long prompt as a Markdown file and call it with `/prompt:name` |
-| [session-retention](https://github.com/dohwi/pipaya-extension-session-retention) | server | 0.1.0 | Deletes chats that have not been used for a while (off by default) |
-| [quota-monitor](https://github.com/dohwi/pipaya-extension-quota-monitor) | client | 0.4.1 | Claude, GPT and Antigravity quota gauges in the navbar |
+| [guard](https://github.com/dohwi/pipaya-extensions/tree/main/extensions/guard) | server | 0.1.0 | Blocks destructive shell commands (`rm -rf /`, `mkfs`, fork bombs) before they run |
+| [ask-user](https://github.com/dohwi/pipaya-extensions/tree/main/extensions/ask-user) | server | 0.1.0 | Lets the agent ask you a question (options, recommended choice) and wait for the answer |
+| [peer-tools](https://github.com/dohwi/pipaya-extensions/tree/main/extensions/peer-tools) | server | 0.1.0 | Lets agents message (`peer_send`) and read (`peer_read`) each other's chats |
+| [prompt-templates](https://github.com/dohwi/pipaya-extensions/tree/main/extensions/prompt-templates) | server | 0.1.0 | Save a long prompt as a Markdown file and call it with `/prompt:name` |
+| [session-retention](https://github.com/dohwi/pipaya-extensions/tree/main/extensions/session-retention) | server | 0.1.0 | Deletes chats that have not been used for a while (off by default) |
+| [quota-monitor](https://github.com/dohwi/pipaya-extensions/tree/main/extensions/quota-monitor) | client | 0.4.1 | Claude, GPT and Antigravity quota gauges in the navbar |
 
 ## Features
 
 - **Two kinds**: `server` extensions (hooks, tools, `/commands`) and `client` extensions (UI packages)
 - **Single index**: a tiny `marketplace.json` plus a generated `index.json`, no registry service to run
-- **Reviewed in CI**: duplicate ids, paths, pinned tags and `sha256` are checked, and `index.json` must match its sources
+- **Reviewed in CI**: duplicate ids, folder paths, pinned tags and commits or `sha256` are checked, and `index.json` must match its sources
 - **Plain CLI**: `list`, `install`, `remove`; no dependencies besides Bun
 
 ## Install an extension
@@ -48,27 +48,29 @@ Requires [Bun](https://bun.sh).
 git clone https://github.com/dohwi/pipaya-marketplace && cd pipaya-marketplace
 
 bun scripts/market.ts list
-bun scripts/market.ts install guard          # copies to ~/.pipaya/extensions/guard
+bun scripts/market.ts install guard          # copies one extension's folder to ~/.pipaya/extensions/guard
 curl -X POST -H "Authorization: Bearer $ADMIN_TOKEN" http://<server>/server-extensions/reload
 
 bun scripts/market.ts install quota-monitor  # saves quota-monitor.json, import it in the pipaya app
 bun scripts/market.ts remove guard
 ```
 
-Set `PIPAYA_MARKET_URL` to a raw `index.json` URL to read a remote catalog (server extensions installed from a path still need a local clone).
+Set `PIPAYA_MARKET_URL` to a raw `index.json` URL to read a remote catalog.
 
 ## Adding an extension
 
 `marketplace.json` only says **where** an extension lives. Name, version, description and author are read from the extension itself, and the license from its GitHub repository.
 
 ```json
-{ "id": "my-ext", "kind": "server", "repo": "me/pipaya-extension-my-ext", "ref": "v1.0.0", "commit": "…" }
-{ "id": "my-ui", "repo": "me/pipaya-extension-my-ui", "ref": "v1.0.0", "sha256": "…" }
-{ "id": "guard", "path": "extensions/guard" }
+{ "id": "my-ext", "kind": "server", "repo": "me/my-extensions", "dir": "extensions/my-ext", "ref": "my-ext-v1.0.0", "commit": "…" }
+{ "id": "my-ui", "repo": "me/my-extensions", "dir": "extensions/my-ui", "ref": "my-ui-v1.0.0", "sha256": "…" }
+{ "id": "solo", "kind": "server", "repo": "me/pipaya-extension-solo", "ref": "v1.0.0", "commit": "…" }
 ```
 
-- **Server extension**: one GitHub repository per extension (`pipaya-extension-<id>`) with `index.ts` and `package.json` (`name`, `version`, `description`, `license`, `author`) at its root. Tag a release, then run `bun scripts/pin.ts my-ext v1.0.0` to record the commit the tag points to; CI and the installer refuse it if the tag later moves. The `path` form (a folder in this repository's `extensions/`) is only for very small extensions.
-- **Client extension**: tag a release in your repo that contains `dist/<id>.json`, then run `bun scripts/pin.ts my-ui v1.0.0` to record the tag and its `sha256`. `ref` must be a tag or commit, never a branch.
+`repo` is the repository and `dir` a folder inside it; leave `dir` out when the extension is the whole repository. When one repository holds several extensions, tag releases `<id>-v<version>` so each one versions on its own.
+
+- **Server extension**: put `index.ts` and `package.json` (`name`, `version`, `description`, `license`, `author`) in the folder (or at the repository root). Tag a release, then run `bun scripts/pin.ts my-ext my-ext-v1.0.0` to record the commit the tag points to; CI and the installer refuse it if the tag later moves. Installing copies that folder only.
+- **Client extension**: tag a release that contains `<dir>/dist/<id>.json`, then run `bun scripts/pin.ts my-ui my-ui-v1.0.0` to record the tag and its `sha256`. `ref` must be a tag or commit, never a branch.
 - Run `bun scripts/build-index.ts` and commit the generated `index.json` (the app reads it; CI fails when it is stale).
 
 ## Project structure
@@ -77,7 +79,6 @@ Set `PIPAYA_MARKET_URL` to a raw `index.json` URL to read a remote catalog (serv
 pipaya-marketplace/
 ├── marketplace.json      # where each extension lives (hand-written)
 ├── index.json            # generated: names, versions, licenses
-├── extensions/<id>/      # server extensions (index.ts)
 ├── scripts/              # market.ts CLI, build-index.ts, pin.ts, tests
 └── .github/              # CI and README assets
 ```

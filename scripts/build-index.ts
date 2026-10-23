@@ -16,19 +16,11 @@ export async function buildIndex(src: Listings, o: { root?: string; fetch?: type
 	if (errs.length) throw new Error(errs.join("\n"));
 	const extensions: Entry[] = [];
 	for (const l of src.extensions) {
-		if (l.path) {
-			const pkg = JSON.parse(readFileSync(join(root, l.path, "package.json"), "utf8"));
-			extensions.push({
-				id: l.id, kind: "server", name: pkg.pipaya?.title ?? pkg.name ?? l.id, description: pkg.description ?? "", version: pkg.version,
-				...(authorName(pkg.author) ? { author: authorName(pkg.author) } : {}), ...(pkg.license ? { license: pkg.license } : {}),
-				source: { type: "path", path: l.path },
-			});
-			continue;
-		}
 		const headers: Record<string, string> = { Accept: "application/vnd.github+json", ...(o.token ? { Authorization: `Bearer ${o.token}` } : {}) };
 		if (l.kind === "server") {
-			const raw = await get(`https://raw.githubusercontent.com/${l.repo}/${l.ref}/package.json`);
-			if (!raw.ok) throw new Error(`${l.id}: cannot read package.json of ${l.repo}@${l.ref} (${raw.status})`);
+			const at0 = l.dir ? `${l.dir}/` : "";
+			const raw = await get(`https://raw.githubusercontent.com/${l.repo}/${l.ref}/${at0}package.json`);
+			if (!raw.ok) throw new Error(`${l.id}: cannot read ${at0}package.json of ${l.repo}@${l.ref} (${raw.status})`);
 			const pkg = JSON.parse(await raw.text());
 			const at = await get(`https://api.github.com/repos/${l.repo}/commits/${l.ref}`, { headers });
 			const sha = at.ok ? ((await at.json()) as { sha?: string }).sha : undefined;
@@ -36,11 +28,11 @@ export async function buildIndex(src: Listings, o: { root?: string; fetch?: type
 			extensions.push({
 				id: l.id, kind: "server", name: pkg.pipaya?.title ?? pkg.name ?? l.id, description: pkg.description ?? "", version: pkg.version,
 				author: authorName(pkg.author) ?? l.repo!.split("/")[0], ...(pkg.license ? { license: pkg.license } : {}),
-				homepage: `https://github.com/${l.repo}`, source: { type: "git", repo: l.repo!, ref: l.ref!, commit: l.commit! },
+				homepage: `https://github.com/${l.repo}${l.dir ? `/tree/${l.ref}/${l.dir}` : ""}`, source: { type: "git", repo: l.repo!, ...(l.dir ? { dir: l.dir } : {}), ref: l.ref!, commit: l.commit! },
 			});
 			continue;
 		}
-		const url = `https://raw.githubusercontent.com/${l.repo}/${l.ref}/dist/${l.id}.json`;
+		const url = `https://raw.githubusercontent.com/${l.repo}/${l.ref}/${l.dir ? `${l.dir}/` : ""}dist/${l.id}.json`;
 		const res = await get(url);
 		if (!res.ok) throw new Error(`${l.id}: cannot download ${url} (${res.status})`);
 		const text = await res.text();
@@ -53,7 +45,7 @@ export async function buildIndex(src: Listings, o: { root?: string; fetch?: type
 		extensions.push({
 			id: l.id, kind: "client", name: m.name, description: m.description ?? "", version: m.version,
 			author: l.repo!.split("/")[0], ...(spdx && spdx !== "NOASSERTION" ? { license: spdx } : {}),
-			homepage: `https://github.com/${l.repo}`, source: { type: "url", url, sha256: l.sha256! },
+			homepage: `https://github.com/${l.repo}${l.dir ? `/tree/${l.ref}/${l.dir}` : ""}`, source: { type: "url", url, sha256: l.sha256! },
 		});
 	}
 	return { name: src.name, ...(src.description ? { description: src.description } : {}), extensions };
