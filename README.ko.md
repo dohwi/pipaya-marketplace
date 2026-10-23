@@ -25,7 +25,7 @@
 | 확장 | 종류 | 버전 | 설명 |
 |---|---|---|---|
 | [guard](extensions/guard) | server | 0.1.0 | 위험한 셸 명령(`rm -rf /`, `mkfs`, 포크 폭탄)을 실행 전에 차단 |
-| [quota-monitor](https://github.com/dohwi/pipaya-extension-quota-monitor) | client | 0.4.1 | Claude, GPT, Antigravity 잔량 게이지를 navbar에 표시 |
+| [quota-monitor](https://github.com/dohwi/pipaya-extension-quota-monitor) | client | 0.4.0 | Claude, GPT, Antigravity 잔량 게이지를 navbar에 표시 |
 
 ## 특징
 
@@ -35,6 +35,8 @@
 - **단순한 CLI**: `list`, `install`, `remove`. Bun 외 의존성 없음
 
 ## 확장 설치
+
+pipaya 앱에서는 **설정 → 확장 → 마켓플레이스**에서 설치합니다. 클라이언트 확장은 권한을 먼저 보여 준 뒤 설치하고, 서버 확장은 아래 명령을 안내합니다.
 
 [Bun](https://bun.sh)이 필요합니다.
 
@@ -59,7 +61,7 @@ bun scripts/market.ts remove guard
 | `kind` | `server` 또는 `client` |
 | `version` | semver. 변경할 때마다 올림 |
 | `license` | 필수 |
-| `source` | `{ "type": "path", "path": "extensions/<id>" }`(server) 또는 `{ "type": "url", "url": "https://…" }`(client, 빌드된 패키지) |
+| `source` | `{ "type": "path", "path": "extensions/<id>" }`(server) 또는 `{ "type": "url", "url": "https://…", "sha256": "…" }`(client, 빌드된 패키지. 설치 전 파일의 `sha256`을 확인) |
 
 ## 프로젝트 구조
 

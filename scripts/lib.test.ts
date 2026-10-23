@@ -17,3 +17,9 @@ test("catches bad entries", () => {
 	const errs = validate(c).join("\n");
 	for (const s of ["id must be", "semver", "inside the repo", "url must be https", "duplicate id"]) expect(errs).toContain(s);
 });
+
+test("sha256 must be 64 hex characters", () => {
+	const base = loadCatalog().extensions[1];
+	const errs = validate({ name: "x", extensions: [{ ...base, source: { type: "url", url: "https://x.dev/a.json", sha256: "abc" } }] });
+	expect(errs.join()).toContain("sha256");
+});

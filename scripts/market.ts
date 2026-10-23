@@ -40,9 +40,14 @@ if (cmd === "list") {
 		const file = resolve(out ?? `${e.id}.json`);
 		const res = await fetch(e.source.url);
 		if (!res.ok) { console.error(`download failed: ${res.status}`); process.exit(1); }
-		const pkg = (await res.json()) as { manifest?: { id?: string; version?: string } };
+		const text = await res.text();
+		if (e.source.sha256) {
+			const got = new Bun.CryptoHasher("sha256").update(text).digest("hex");
+			if (got !== e.source.sha256) { console.error("sha256 mismatch; refusing to save"); process.exit(1); }
+		}
+		const pkg = JSON.parse(text) as { manifest?: { id?: string; version?: string } };
 		if (pkg.manifest?.id !== e.id) { console.error("downloaded package id does not match the catalog"); process.exit(1); }
-		writeFileSync(file, JSON.stringify(pkg, null, 2) + "\n");
+		writeFileSync(file, text);
 		console.log(`saved ${file} (${e.id}@${pkg.manifest?.version}). Import it in pipaya: Extensions → add package file.`);
 	}
 } else if (cmd === "remove") {

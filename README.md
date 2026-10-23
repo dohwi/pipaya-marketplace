@@ -25,7 +25,7 @@ The public catalog of [pipaya](https://github.com/dohwi/pipaya) extensions. One 
 | Extension | Kind | Version | What it does |
 |---|---|---|---|
 | [guard](extensions/guard) | server | 0.1.0 | Blocks destructive shell commands (`rm -rf /`, `mkfs`, fork bombs) before they run |
-| [quota-monitor](https://github.com/dohwi/pipaya-extension-quota-monitor) | client | 0.4.1 | Claude, GPT and Antigravity quota gauges in the navbar |
+| [quota-monitor](https://github.com/dohwi/pipaya-extension-quota-monitor) | client | 0.4.0 | Claude, GPT and Antigravity quota gauges in the navbar |
 
 ## Features
 
@@ -35,6 +35,8 @@ The public catalog of [pipaya](https://github.com/dohwi/pipaya) extensions. One 
 - **Plain CLI**: `list`, `install`, `remove`; no dependencies besides Bun
 
 ## Install an extension
+
+In the pipaya app: **Settings → Extensions → Marketplace**. Client extensions install from there (permissions are shown first); server extensions show the command below.
 
 Requires [Bun](https://bun.sh).
 
@@ -59,7 +61,7 @@ Set `PIPAYA_MARKET_URL` to a raw `marketplace.json` URL to read a remote catalog
 | `kind` | `server` or `client` |
 | `version` | semver; bump it on every change |
 | `license` | required |
-| `source` | `{ "type": "path", "path": "extensions/<id>" }` (server) or `{ "type": "url", "url": "https://…" }` (client, built package) |
+| `source` | `{ "type": "path", "path": "extensions/<id>" }` (server) or `{ "type": "url", "url": "https://…", "sha256": "…" }` (client, built package; `sha256` of the file is checked before install) |
 
 ## Project structure
 

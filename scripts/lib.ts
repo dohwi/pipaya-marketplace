@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
 export const ROOT = join(import.meta.dir, "..");
-export type Source = { type: "path"; path: string } | { type: "url"; url: string };
+export type Source = { type: "path"; path: string } | { type: "url"; url: string; sha256?: string };
 export type Entry = {
 	id: string; kind: "server" | "client"; name: string; description: string; version: string;
 	author?: string; license?: string; homepage?: string; source: Source;
@@ -39,6 +39,7 @@ export function validate(c: Catalog, root = ROOT): string[] {
 		} else if (s?.type === "url") {
 			if (!s.url.startsWith("https://")) errs.push(`${at}: url must be https`);
 			if (e.kind !== "client") errs.push(`${at}: only client extensions can use a url source`);
+			if (s.sha256 !== undefined && !/^[0-9a-f]{64}$/.test(s.sha256)) errs.push(`${at}: sha256 must be 64 lowercase hex characters`);
 		} else errs.push(`${at}: source.type must be "path" or "url"`);
 	}
 	return errs;

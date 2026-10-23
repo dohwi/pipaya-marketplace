@@ -10,18 +10,25 @@
       "version": "0.1.0",
       "author": "dohwi",
       "license": "MIT",
-      "source": { "type": "path", "path": "extensions/guard" }
+      "source": {
+        "type": "path",
+        "path": "extensions/guard"
+      }
     },
     {
       "id": "quota-monitor",
       "kind": "client",
       "name": "Quota Monitor",
       "description": "Claude / GPT / Antigravity quota gauges in the navbar. Needs cliproxyapi-plugin-quota-monitor.",
-      "version": "0.4.1",
+      "version": "0.4.0",
       "author": "dohwi",
       "license": "MIT",
       "homepage": "https://github.com/dohwi/pipaya-extension-quota-monitor",
-      "source": { "type": "url", "url": "https://raw.githubusercontent.com/dohwi/pipaya-extension-quota-monitor/main/dist/quota-monitor.json" }
+      "source": {
+        "type": "url",
+        "url": "https://raw.githubusercontent.com/dohwi/pipaya-extension-quota-monitor/main/dist/quota-monitor.json",
+        "sha256": "365dbb93a57c6f67d8df764f816ec24adc6d48a6aaa3f4a8ec91c87210bd019e"
+      }
     }
   ]
 }
