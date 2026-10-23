@@ -26,7 +26,7 @@ test("catches bad entries", () => {
 });
 
 test("a folder inside a repository is accepted", () => {
-	expect(validateListings({ name: "x", extensions: [{ id: "a", kind: "server", repo: "o/r", dir: "extensions/a", ref: "a-v1.0.0", commit: C }] })).toEqual([]);
+	expect(validateListings({ name: "x", extensions: [{ id: "a", kind: "server", repo: "o/r", dir: "a", ref: "a-v1.0.0", commit: C }] })).toEqual([]);
 });
 
 test("a client extension is read from its folder of a monorepo, with the repo license", async () => {
@@ -38,9 +38,9 @@ test("a client extension is read from its folder of a monorepo, with the repo li
 		if (String(url).includes("/license")) return Response.json({ license: { spdx_id: "MIT" } });
 		return new Response("", { status: 404 });
 	}) as unknown as typeof fetch;
-	const idx = await buildIndex({ name: "m", extensions: [{ id: "qm", repo: "o/r", dir: "extensions/qm", ref: "qm-v1.2.3", sha256: sha256Hex(pkg) }] }, { fetch: fake });
-	expect(urls[0]).toBe("https://raw.githubusercontent.com/o/r/qm-v1.2.3/extensions/qm/dist/qm.json");
-	expect(idx.extensions[0]).toMatchObject({ kind: "client", name: "QM", version: "1.2.3", license: "MIT", author: "o", homepage: "https://github.com/o/r/tree/qm-v1.2.3/extensions/qm" });
+	const idx = await buildIndex({ name: "m", extensions: [{ id: "qm", repo: "o/r", dir: "qm", ref: "qm-v1.2.3", sha256: sha256Hex(pkg) }] }, { fetch: fake });
+	expect(urls[0]).toBe("https://raw.githubusercontent.com/o/r/qm-v1.2.3/qm/dist/qm.json");
+	expect(idx.extensions[0]).toMatchObject({ kind: "client", name: "QM", version: "1.2.3", license: "MIT", author: "o", homepage: "https://github.com/o/r/tree/qm-v1.2.3/qm" });
 });
 
 test("a server extension is read from its folder and pinned to a commit", async () => {
@@ -51,9 +51,9 @@ test("a server extension is read from its folder and pinned to a commit", async 
 		if (String(url).includes("/commits/")) return Response.json({ sha: C });
 		return new Response("", { status: 404 });
 	}) as unknown as typeof fetch;
-	const idx = await buildIndex({ name: "m", extensions: [{ id: "x", kind: "server", repo: "o/r", dir: "extensions/x", ref: "x-v1.0.0", commit: C }] }, { fetch: fake });
-	expect(urls[0]).toBe("https://raw.githubusercontent.com/o/r/x-v1.0.0/extensions/x/package.json");
-	expect(idx.extensions[0]).toMatchObject({ id: "x", kind: "server", name: "X", version: "1.0.0", license: "MIT", source: { type: "git", repo: "o/r", dir: "extensions/x", ref: "x-v1.0.0", commit: C } });
+	const idx = await buildIndex({ name: "m", extensions: [{ id: "x", kind: "server", repo: "o/r", dir: "x", ref: "x-v1.0.0", commit: C }] }, { fetch: fake });
+	expect(urls[0]).toBe("https://raw.githubusercontent.com/o/r/x-v1.0.0/x/package.json");
+	expect(idx.extensions[0]).toMatchObject({ id: "x", kind: "server", name: "X", version: "1.0.0", license: "MIT", source: { type: "git", repo: "o/r", dir: "x", ref: "x-v1.0.0", commit: C } });
 });
 
 test("a server extension that is a whole repository has no dir", async () => {

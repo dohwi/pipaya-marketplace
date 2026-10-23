@@ -24,12 +24,12 @@
 
 | 확장 | 종류 | 버전 | 설명 |
 |---|---|---|---|
-| [guard](https://github.com/dohwi/pipaya-extensions/tree/main/extensions/guard) | server | 0.1.0 | 위험한 셸 명령(`rm -rf /`, `mkfs`, 포크 폭탄)을 실행 전에 차단 |
-| [ask-user](https://github.com/dohwi/pipaya-extensions/tree/main/extensions/ask-user) | server | 0.1.0 | 에이전트가 선택지·추천과 함께 질문하고 답을 기다리게 함 |
-| [peer-tools](https://github.com/dohwi/pipaya-extensions/tree/main/extensions/peer-tools) | server | 0.1.0 | 에이전트가 서로의 대화에 메시지를 보내고(`peer_send`) 읽게 함(`peer_read`) |
-| [prompt-templates](https://github.com/dohwi/pipaya-extensions/tree/main/extensions/prompt-templates) | server | 0.1.0 | 긴 프롬프트를 Markdown 파일로 저장해 `/prompt:이름`으로 호출 |
-| [session-retention](https://github.com/dohwi/pipaya-extensions/tree/main/extensions/session-retention) | server | 0.1.0 | 한동안 쓰지 않은 대화를 자동 삭제(기본은 꺼짐) |
-| [quota-monitor](https://github.com/dohwi/pipaya-extensions/tree/main/extensions/quota-monitor) | client | 0.4.1 | Claude, GPT, Antigravity 잔량 게이지를 navbar에 표시 |
+| [guard](https://github.com/dohwi/pipaya-extensions/tree/main/guard) | server | 0.1.0 | 위험한 셸 명령(`rm -rf /`, `mkfs`, 포크 폭탄)을 실행 전에 차단 |
+| [ask-user](https://github.com/dohwi/pipaya-extensions/tree/main/ask-user) | server | 0.1.0 | 에이전트가 선택지·추천과 함께 질문하고 답을 기다리게 함 |
+| [peer-tools](https://github.com/dohwi/pipaya-extensions/tree/main/peer-tools) | server | 0.1.0 | 에이전트가 서로의 대화에 메시지를 보내고(`peer_send`) 읽게 함(`peer_read`) |
+| [prompt-templates](https://github.com/dohwi/pipaya-extensions/tree/main/prompt-templates) | server | 0.1.0 | 긴 프롬프트를 Markdown 파일로 저장해 `/prompt:이름`으로 호출 |
+| [session-retention](https://github.com/dohwi/pipaya-extensions/tree/main/session-retention) | server | 0.1.0 | 한동안 쓰지 않은 대화를 자동 삭제(기본은 꺼짐) |
+| [quota-monitor](https://github.com/dohwi/pipaya-extensions/tree/main/quota-monitor) | client | 0.4.1 | Claude, GPT, Antigravity 잔량 게이지를 navbar에 표시 |
 
 ## 특징
 
@@ -62,8 +62,8 @@ bun scripts/market.ts remove guard
 `marketplace.json`에는 확장이 **어디에 있는지**만 적습니다. 이름, 버전, 설명, 작성자는 확장 자신의 파일에서, 라이선스는 GitHub 저장소에서 읽어 옵니다.
 
 ```json
-{ "id": "my-ext", "kind": "server", "repo": "me/my-extensions", "dir": "extensions/my-ext", "ref": "my-ext-v1.0.0", "commit": "…" }
-{ "id": "my-ui", "repo": "me/my-extensions", "dir": "extensions/my-ui", "ref": "my-ui-v1.0.0", "sha256": "…" }
+{ "id": "my-ext", "kind": "server", "repo": "me/my-extensions", "dir": "my-ext", "ref": "my-ext-v1.0.0", "commit": "…" }
+{ "id": "my-ui", "repo": "me/my-extensions", "dir": "my-ui", "ref": "my-ui-v1.0.0", "sha256": "…" }
 { "id": "solo", "kind": "server", "repo": "me/pipaya-extension-solo", "ref": "v1.0.0", "commit": "…" }
 ```
 

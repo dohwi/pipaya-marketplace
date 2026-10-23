@@ -10,13 +10,13 @@
       "version": "0.1.0",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/guard-v0.1.0/extensions/guard",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/guard-v0.1.0/guard",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
-        "dir": "extensions/guard",
+        "dir": "guard",
         "ref": "guard-v0.1.0",
-        "commit": "0b89e7d3b6f5ac154009031ea32bb3c0b681063e"
+        "commit": "e6198aabbd8784c4474ab3098db21fe973c8291b"
       }
     },
     {
@@ -27,13 +27,13 @@
       "version": "0.1.0",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/ask-user-v0.1.0/extensions/ask-user",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/ask-user-v0.1.0/ask-user",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
-        "dir": "extensions/ask-user",
+        "dir": "ask-user",
         "ref": "ask-user-v0.1.0",
-        "commit": "0b89e7d3b6f5ac154009031ea32bb3c0b681063e"
+        "commit": "e6198aabbd8784c4474ab3098db21fe973c8291b"
       }
     },
     {
@@ -44,10 +44,10 @@
       "version": "0.4.1",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/quota-monitor-v0.4.1/extensions/quota-monitor",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/quota-monitor-v0.4.1/quota-monitor",
       "source": {
         "type": "url",
-        "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/quota-monitor-v0.4.1/extensions/quota-monitor/dist/quota-monitor.json",
+        "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/quota-monitor-v0.4.1/quota-monitor/dist/quota-monitor.json",
         "sha256": "81f3a672262df96faf6f16a4cd6e453dad7c102e8ecb6524e19b87cb92fe078c"
       }
     },
@@ -59,13 +59,13 @@
       "version": "0.1.0",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/peer-tools-v0.1.0/extensions/peer-tools",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/peer-tools-v0.1.0/peer-tools",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
-        "dir": "extensions/peer-tools",
+        "dir": "peer-tools",
         "ref": "peer-tools-v0.1.0",
-        "commit": "0b89e7d3b6f5ac154009031ea32bb3c0b681063e"
+        "commit": "e6198aabbd8784c4474ab3098db21fe973c8291b"
       }
     },
     {
@@ -76,13 +76,13 @@
       "version": "0.1.0",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/prompt-templates-v0.1.0/extensions/prompt-templates",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/prompt-templates-v0.1.0/prompt-templates",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
-        "dir": "extensions/prompt-templates",
+        "dir": "prompt-templates",
         "ref": "prompt-templates-v0.1.0",
-        "commit": "0b89e7d3b6f5ac154009031ea32bb3c0b681063e"
+        "commit": "e6198aabbd8784c4474ab3098db21fe973c8291b"
       }
     },
     {
@@ -93,13 +93,13 @@
       "version": "0.1.0",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/session-retention-v0.1.0/extensions/session-retention",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/session-retention-v0.1.0/session-retention",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
-        "dir": "extensions/session-retention",
+        "dir": "session-retention",
         "ref": "session-retention-v0.1.0",
-        "commit": "0b89e7d3b6f5ac154009031ea32bb3c0b681063e"
+        "commit": "e6198aabbd8784c4474ab3098db21fe973c8291b"
       }
     }
   ]

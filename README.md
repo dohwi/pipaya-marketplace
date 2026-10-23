@@ -24,12 +24,12 @@ The public catalog of [pipaya](https://github.com/dohwi/pipaya) extensions. `mar
 
 | Extension | Kind | Version | What it does |
 |---|---|---|---|
-| [guard](https://github.com/dohwi/pipaya-extensions/tree/main/extensions/guard) | server | 0.1.0 | Blocks destructive shell commands (`rm -rf /`, `mkfs`, fork bombs) before they run |
-| [ask-user](https://github.com/dohwi/pipaya-extensions/tree/main/extensions/ask-user) | server | 0.1.0 | Lets the agent ask you a question (options, recommended choice) and wait for the answer |
-| [peer-tools](https://github.com/dohwi/pipaya-extensions/tree/main/extensions/peer-tools) | server | 0.1.0 | Lets agents message (`peer_send`) and read (`peer_read`) each other's chats |
-| [prompt-templates](https://github.com/dohwi/pipaya-extensions/tree/main/extensions/prompt-templates) | server | 0.1.0 | Save a long prompt as a Markdown file and call it with `/prompt:name` |
-| [session-retention](https://github.com/dohwi/pipaya-extensions/tree/main/extensions/session-retention) | server | 0.1.0 | Deletes chats that have not been used for a while (off by default) |
-| [quota-monitor](https://github.com/dohwi/pipaya-extensions/tree/main/extensions/quota-monitor) | client | 0.4.1 | Claude, GPT and Antigravity quota gauges in the navbar |
+| [guard](https://github.com/dohwi/pipaya-extensions/tree/main/guard) | server | 0.1.0 | Blocks destructive shell commands (`rm -rf /`, `mkfs`, fork bombs) before they run |
+| [ask-user](https://github.com/dohwi/pipaya-extensions/tree/main/ask-user) | server | 0.1.0 | Lets the agent ask you a question (options, recommended choice) and wait for the answer |
+| [peer-tools](https://github.com/dohwi/pipaya-extensions/tree/main/peer-tools) | server | 0.1.0 | Lets agents message (`peer_send`) and read (`peer_read`) each other's chats |
+| [prompt-templates](https://github.com/dohwi/pipaya-extensions/tree/main/prompt-templates) | server | 0.1.0 | Save a long prompt as a Markdown file and call it with `/prompt:name` |
+| [session-retention](https://github.com/dohwi/pipaya-extensions/tree/main/session-retention) | server | 0.1.0 | Deletes chats that have not been used for a while (off by default) |
+| [quota-monitor](https://github.com/dohwi/pipaya-extensions/tree/main/quota-monitor) | client | 0.4.1 | Claude, GPT and Antigravity quota gauges in the navbar |
 
 ## Features
 
@@ -62,8 +62,8 @@ Set `PIPAYA_MARKET_URL` to a raw `index.json` URL to read a remote catalog.
 `marketplace.json` only says **where** an extension lives. Name, version, description and author are read from the extension itself, and the license from its GitHub repository.
 
 ```json
-{ "id": "my-ext", "kind": "server", "repo": "me/my-extensions", "dir": "extensions/my-ext", "ref": "my-ext-v1.0.0", "commit": "…" }
-{ "id": "my-ui", "repo": "me/my-extensions", "dir": "extensions/my-ui", "ref": "my-ui-v1.0.0", "sha256": "…" }
+{ "id": "my-ext", "kind": "server", "repo": "me/my-extensions", "dir": "my-ext", "ref": "my-ext-v1.0.0", "commit": "…" }
+{ "id": "my-ui", "repo": "me/my-extensions", "dir": "my-ui", "ref": "my-ui-v1.0.0", "sha256": "…" }
 { "id": "solo", "kind": "server", "repo": "me/pipaya-extension-solo", "ref": "v1.0.0", "commit": "…" }
 ```
 
