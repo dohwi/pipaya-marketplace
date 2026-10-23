@@ -71,3 +71,13 @@ test("a changed package is refused", async () => {
 	const fake = (async () => new Response("{}")) as unknown as typeof fetch;
 	await expect(buildIndex({ name: "m", extensions: [{ id: "qm", repo: "o/r", ref: "v1", sha256: H }] }, { fetch: fake })).rejects.toThrow("sha256 mismatch");
 });
+
+test("translations come from pipaya.descriptions of package.json", async () => {
+	const pkg = { name: "pipaya-extension-x", version: "1.0.0", description: "d", pipaya: { title: "X", descriptions: { ko: "디", "bad tag": "x", en: 1 } } };
+	const fetcher = (async (url: string) => {
+		if (String(url).includes("raw.githubusercontent.com")) return new Response(JSON.stringify(pkg));
+		return new Response(JSON.stringify({ sha: C }));
+	}) as unknown as typeof fetch;
+	const out = await buildIndex({ name: "x", extensions: [{ id: "x", kind: "server", repo: "o/r", ref: "x-v1.0.0", commit: C }] }, { fetch: fetcher });
+	expect(out.extensions[0]!.descriptions).toEqual({ ko: "디" });
+});

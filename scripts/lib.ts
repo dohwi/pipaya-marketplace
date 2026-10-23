@@ -12,7 +12,7 @@ export type Listings = { name: string; description?: string; extensions: Listing
 /** What the app and the CLI read (generated into index.json). */
 export type Source = { type: "url"; url: string; sha256: string } | { type: "git"; repo: string; dir?: string; ref: string; commit: string };
 export type Entry = {
-	id: string; kind: "server" | "client"; name: string; description: string; version: string;
+	id: string; kind: "server" | "client"; name: string; description: string; descriptions?: Record<string, string>; version: string;
 	author?: string; license?: string; homepage?: string; source: Source;
 };
 export type Catalog = { name: string; description?: string; extensions: Entry[] };

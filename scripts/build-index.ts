@@ -8,6 +8,14 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { type Catalog, type Entry, INDEX_FILE, LISTING_FILE, type Listings, ROOT, readJson, sha256Hex, validateListings } from "./lib.ts";
 
+/** `pipaya.descriptions` of package.json: `{ "ko": "...", "en": "..." }`; anything malformed is dropped. */
+const translations = (pkg: any): { descriptions?: Record<string, string> } => {
+	const raw = pkg?.pipaya?.descriptions;
+	if (!raw || typeof raw !== "object" || Array.isArray(raw)) return {};
+	const d = Object.fromEntries(Object.entries(raw).filter(([k, v]) => /^[A-Za-z]{2,3}(-[A-Za-z0-9]+)*$/.test(k) && typeof v === "string" && v.length > 0 && v.length <= 500));
+	return Object.keys(d).length ? { descriptions: d as Record<string, string> } : {};
+};
+
 const authorName = (a: unknown) => (typeof a === "string" ? a : (a as { name?: string } | undefined)?.name);
 
 export async function buildIndex(src: Listings, o: { root?: string; fetch?: typeof fetch; token?: string } = {}): Promise<Catalog> {
@@ -26,7 +34,7 @@ export async function buildIndex(src: Listings, o: { root?: string; fetch?: type
 			const sha = at.ok ? ((await at.json()) as { sha?: string }).sha : undefined;
 			if (sha !== l.commit) throw new Error(`${l.id}: ${l.ref} points to ${sha ?? "an unknown commit"}, listed ${l.commit} (run scripts/pin.ts)`);
 			extensions.push({
-				id: l.id, kind: "server", name: pkg.pipaya?.title ?? pkg.name ?? l.id, description: pkg.description ?? "", version: pkg.version,
+				id: l.id, kind: "server", name: pkg.pipaya?.title ?? pkg.name ?? l.id, description: pkg.description ?? "", ...translations(pkg), version: pkg.version,
 				author: authorName(pkg.author) ?? l.repo!.split("/")[0], ...(pkg.license ? { license: pkg.license } : {}),
 				homepage: `https://github.com/${l.repo}${l.dir ? `/tree/${l.ref}/${l.dir}` : ""}`, source: { type: "git", repo: l.repo!, ...(l.dir ? { dir: l.dir } : {}), ref: l.ref!, commit: l.commit! },
 			});
@@ -40,10 +48,13 @@ export async function buildIndex(src: Listings, o: { root?: string; fetch?: type
 		if (got !== l.sha256) throw new Error(`${l.id}: sha256 mismatch (listed ${l.sha256}, got ${got})`);
 		const m = JSON.parse(text).manifest;
 		if (m?.id !== l.id) throw new Error(`${l.id}: package id is "${m?.id}"`);
+		const pr = await get(`https://raw.githubusercontent.com/${l.repo}/${l.ref}/${l.dir ? `${l.dir}/` : ""}package.json`);
+		let pkgJson: unknown;
+		try { pkgJson = pr.ok ? JSON.parse(await pr.text()) : undefined; } catch { /* optional */ }
 		const lr = await get(`https://api.github.com/repos/${l.repo}/license?ref=${l.ref}`, { headers });
 		const spdx = lr.ok ? ((await lr.json()) as { license?: { spdx_id?: string } }).license?.spdx_id : undefined;
 		extensions.push({
-			id: l.id, kind: "client", name: m.name, description: m.description ?? "", version: m.version,
+			id: l.id, kind: "client", name: m.name, description: m.description ?? "", ...translations(pkgJson), version: m.version,
 			author: l.repo!.split("/")[0], ...(spdx && spdx !== "NOASSERTION" ? { license: spdx } : {}),
 			homepage: `https://github.com/${l.repo}${l.dir ? `/tree/${l.ref}/${l.dir}` : ""}`, source: { type: "url", url, sha256: l.sha256! },
 		});
