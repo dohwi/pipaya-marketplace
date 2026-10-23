@@ -25,6 +25,7 @@ The public catalog of [pipaya](https://github.com/dohwi/pipaya) extensions. One 
 | Extension | Kind | Version | What it does |
 |---|---|---|---|
 | [guard](extensions/guard) | server | 0.1.0 | Blocks destructive shell commands (`rm -rf /`, `mkfs`, fork bombs) before they run |
+| [ask-user](extensions/ask-user) | server | 0.1.0 | Lets the agent ask you a question (options, recommended choice) and wait for the answer |
 | [quota-monitor](https://github.com/dohwi/pipaya-extension-quota-monitor) | client | 0.4.1 | Claude, GPT and Antigravity quota gauges in the navbar |
 
 ## Features
