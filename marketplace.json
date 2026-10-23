@@ -7,47 +7,47 @@
       "kind": "server",
       "repo": "dohwi/pipaya-extensions",
       "dir": "guard",
-      "ref": "guard-v0.1.0",
-      "commit": "e6198aabbd8784c4474ab3098db21fe973c8291b"
+      "ref": "guard-v0.1.1",
+      "commit": "b7a2633ff2fac0996e8b00306aca41ae336610f3"
     },
     {
       "id": "ask-user",
       "kind": "server",
       "repo": "dohwi/pipaya-extensions",
       "dir": "ask-user",
-      "ref": "ask-user-v0.1.0",
-      "commit": "e6198aabbd8784c4474ab3098db21fe973c8291b"
+      "ref": "ask-user-v0.1.1",
+      "commit": "b7a2633ff2fac0996e8b00306aca41ae336610f3"
     },
     {
       "id": "quota-monitor",
       "repo": "dohwi/pipaya-extensions",
       "dir": "quota-monitor",
-      "ref": "quota-monitor-v0.4.1",
-      "sha256": "81f3a672262df96faf6f16a4cd6e453dad7c102e8ecb6524e19b87cb92fe078c"
+      "ref": "quota-monitor-v0.4.2",
+      "sha256": "bc847019eba80c3ae1545cb6da437746880d111c4a3789f73048b9fd460551a8"
     },
     {
       "id": "peer-tools",
       "kind": "server",
       "repo": "dohwi/pipaya-extensions",
       "dir": "peer-tools",
-      "ref": "peer-tools-v0.1.0",
-      "commit": "e6198aabbd8784c4474ab3098db21fe973c8291b"
+      "ref": "peer-tools-v0.1.1",
+      "commit": "b7a2633ff2fac0996e8b00306aca41ae336610f3"
     },
     {
       "id": "prompt-templates",
       "kind": "server",
       "repo": "dohwi/pipaya-extensions",
       "dir": "prompt-templates",
-      "ref": "prompt-templates-v0.1.0",
-      "commit": "e6198aabbd8784c4474ab3098db21fe973c8291b"
+      "ref": "prompt-templates-v0.1.1",
+      "commit": "b7a2633ff2fac0996e8b00306aca41ae336610f3"
     },
     {
       "id": "session-retention",
       "kind": "server",
       "repo": "dohwi/pipaya-extensions",
       "dir": "session-retention",
-      "ref": "session-retention-v0.1.0",
-      "commit": "e6198aabbd8784c4474ab3098db21fe973c8291b"
+      "ref": "session-retention-v0.1.1",
+      "commit": "b7a2633ff2fac0996e8b00306aca41ae336610f3"
     }
   ]
 }

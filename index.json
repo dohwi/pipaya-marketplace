@@ -7,16 +7,20 @@
       "kind": "server",
       "name": "Guard",
       "description": "Blocks destructive shell commands (rm -rf /, mkfs, fork bombs) before they run.",
-      "version": "0.1.0",
+      "descriptions": {
+        "en": "Blocks destructive shell commands (rm -rf /, mkfs, fork bombs) before they run.",
+        "ko": "파괴적인 셸 명령(rm -rf /, mkfs, 포크 폭탄)을 실행되기 전에 차단합니다."
+      },
+      "version": "0.1.1",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/guard-v0.1.0/guard",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/guard-v0.1.1/guard",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
         "dir": "guard",
-        "ref": "guard-v0.1.0",
-        "commit": "e6198aabbd8784c4474ab3098db21fe973c8291b"
+        "ref": "guard-v0.1.1",
+        "commit": "b7a2633ff2fac0996e8b00306aca41ae336610f3"
       }
     },
     {
@@ -24,16 +28,20 @@
       "kind": "server",
       "name": "Ask User",
       "description": "Lets the agent ask you a question (with options and a recommended choice) and wait for your answer.",
-      "version": "0.1.0",
+      "descriptions": {
+        "en": "Lets the agent ask you a question (with options and a recommended choice) and wait for your answer.",
+        "ko": "에이전트가 선택지와 추천안을 곁들여 질문하고, 답을 기다리게 합니다."
+      },
+      "version": "0.1.1",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/ask-user-v0.1.0/ask-user",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/ask-user-v0.1.1/ask-user",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
         "dir": "ask-user",
-        "ref": "ask-user-v0.1.0",
-        "commit": "e6198aabbd8784c4474ab3098db21fe973c8291b"
+        "ref": "ask-user-v0.1.1",
+        "commit": "b7a2633ff2fac0996e8b00306aca41ae336610f3"
       }
     },
     {
@@ -41,14 +49,18 @@
       "kind": "client",
       "name": "Quota Monitor",
       "description": "Claude · GPT · Antigravity의 upstream 전체 잔량을 navbar 원형 게이지와 팝오버로 표시합니다. Antigravity는 바깥 Gemini · 안쪽 Claude/GPT 잔량입니다.",
-      "version": "0.4.1",
+      "descriptions": {
+        "en": "Shows the full upstream quota of Claude, GPT and Antigravity as navbar ring gauges and a popover. For Antigravity, the outer ring is Gemini and the inner ring is Claude/GPT.",
+        "ko": "Claude · GPT · Antigravity의 upstream 전체 잔량을 navbar 원형 게이지와 팝오버로 표시합니다. Antigravity는 바깥 Gemini · 안쪽 Claude/GPT 잔량입니다."
+      },
+      "version": "0.4.2",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/quota-monitor-v0.4.1/quota-monitor",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/quota-monitor-v0.4.2/quota-monitor",
       "source": {
         "type": "url",
-        "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/quota-monitor-v0.4.1/quota-monitor/dist/quota-monitor.json",
-        "sha256": "81f3a672262df96faf6f16a4cd6e453dad7c102e8ecb6524e19b87cb92fe078c"
+        "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/quota-monitor-v0.4.2/quota-monitor/dist/quota-monitor.json",
+        "sha256": "bc847019eba80c3ae1545cb6da437746880d111c4a3789f73048b9fd460551a8"
       }
     },
     {
@@ -56,16 +68,20 @@
       "kind": "server",
       "name": "Peer Tools",
       "description": "Lets an agent message (`peer_send`) and read (`peer_read`) the other active chats of the server, by name or group.",
-      "version": "0.1.0",
+      "descriptions": {
+        "en": "Lets an agent message (`peer_send`) and read (`peer_read`) the other active chats of the server, by name or group.",
+        "ko": "에이전트가 서버의 다른 활성 채팅을 이름이나 그룹으로 찾아 메시지를 보내고(`peer_send`) 읽을 수(`peer_read`) 있게 합니다."
+      },
+      "version": "0.1.1",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/peer-tools-v0.1.0/peer-tools",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/peer-tools-v0.1.1/peer-tools",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
         "dir": "peer-tools",
-        "ref": "peer-tools-v0.1.0",
-        "commit": "e6198aabbd8784c4474ab3098db21fe973c8291b"
+        "ref": "peer-tools-v0.1.1",
+        "commit": "b7a2633ff2fac0996e8b00306aca41ae336610f3"
       }
     },
     {
@@ -73,16 +89,20 @@
       "kind": "server",
       "name": "Prompt Templates",
       "description": "Save a long prompt as a Markdown file and call it with `/prompt:name arguments`.",
-      "version": "0.1.0",
+      "descriptions": {
+        "en": "Save a long prompt as a Markdown file and call it with `/prompt:name arguments`.",
+        "ko": "긴 프롬프트를 Markdown 파일로 저장해 두고 `/prompt:이름 인자`로 불러 씁니다."
+      },
+      "version": "0.1.1",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/prompt-templates-v0.1.0/prompt-templates",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/prompt-templates-v0.1.1/prompt-templates",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
         "dir": "prompt-templates",
-        "ref": "prompt-templates-v0.1.0",
-        "commit": "e6198aabbd8784c4474ab3098db21fe973c8291b"
+        "ref": "prompt-templates-v0.1.1",
+        "commit": "b7a2633ff2fac0996e8b00306aca41ae336610f3"
       }
     },
     {
@@ -90,16 +110,20 @@
       "kind": "server",
       "name": "Session Retention",
       "description": "Deletes chats that have not been used for a while. Off until you set a number of days.",
-      "version": "0.1.0",
+      "descriptions": {
+        "en": "Deletes chats that have not been used for a while. Off until you set a number of days.",
+        "ko": "한동안 쓰지 않은 채팅을 삭제합니다. 일수를 설정하기 전에는 꺼져 있습니다."
+      },
+      "version": "0.1.1",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/session-retention-v0.1.0/session-retention",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/session-retention-v0.1.1/session-retention",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
         "dir": "session-retention",
-        "ref": "session-retention-v0.1.0",
-        "commit": "e6198aabbd8784c4474ab3098db21fe973c8291b"
+        "ref": "session-retention-v0.1.1",
+        "commit": "b7a2633ff2fac0996e8b00306aca41ae336610f3"
       }
     }
   ]
