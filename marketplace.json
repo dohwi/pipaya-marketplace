@@ -1,0 +1,27 @@
+{
+  "name": "pipaya-marketplace",
+  "description": "Community extensions for pipaya",
+  "extensions": [
+    {
+      "id": "guard",
+      "kind": "server",
+      "name": "Guard",
+      "description": "Blocks obviously destructive shell commands (rm -rf /) before they run.",
+      "version": "0.1.0",
+      "author": "dohwi",
+      "license": "MIT",
+      "source": { "type": "path", "path": "extensions/guard" }
+    },
+    {
+      "id": "quota-monitor",
+      "kind": "client",
+      "name": "Quota Monitor",
+      "description": "Claude / GPT / Antigravity quota gauges in the navbar. Needs cliproxyapi-plugin-quota-monitor.",
+      "version": "0.4.1",
+      "author": "dohwi",
+      "license": "MIT",
+      "homepage": "https://github.com/dohwi/pipaya-extension-quota-monitor",
+      "source": { "type": "url", "url": "https://raw.githubusercontent.com/dohwi/pipaya-extension-quota-monitor/main/dist/quota-monitor.json" }
+    }
+  ]
+}
