@@ -25,7 +25,7 @@
 | 확장 | 종류 | 버전 | 설명 |
 |---|---|---|---|
 | [guard](extensions/guard) | server | 0.1.0 | 위험한 셸 명령(`rm -rf /`, `mkfs`, 포크 폭탄)을 실행 전에 차단 |
-| [quota-monitor](https://github.com/dohwi/pipaya-extension-quota-monitor) | client | 0.4.0 | Claude, GPT, Antigravity 잔량 게이지를 navbar에 표시 |
+| [quota-monitor](https://github.com/dohwi/pipaya-extension-quota-monitor) | client | 0.4.1 | Claude, GPT, Antigravity 잔량 게이지를 navbar에 표시 |
 
 ## 특징
 
