@@ -26,10 +26,11 @@ The public catalog of [pipaya](https://github.com/dohwi/pipaya) extensions. `mar
 |---|---|---|---|
 | [guard](https://github.com/dohwi/pipaya-extensions/tree/main/guard) | server | 0.1.1 | Blocks destructive shell commands (`rm -rf /`, `mkfs`, fork bombs) before they run |
 | [ask-user](https://github.com/dohwi/pipaya-extensions/tree/main/ask-user) | server | 0.1.1 | Lets the agent ask you a question (options, recommended choice) and wait for the answer |
-| [peer-tools](https://github.com/dohwi/pipaya-extensions/tree/main/peer-tools) | server | 0.1.1 | Lets agents message (`peer_send`) and read (`peer_read`) each other's chats |
-| [prompt-templates](https://github.com/dohwi/pipaya-extensions/tree/main/prompt-templates) | server | 0.1.1 | Save a long prompt as a Markdown file and call it with `/prompt:name` |
+| [peer-tools](https://github.com/dohwi/pipaya-extensions/tree/main/peer-tools) | server | 0.3.0 | Lets agents message (`peer_send`) and read (`peer_read`) each other's chats |
+| [prompt-templates](https://github.com/dohwi/pipaya-extensions/tree/main/prompt-templates) | server | 0.2.1 | Save a long prompt as a Markdown file and call it with `/prompt:name` |
 | [session-retention](https://github.com/dohwi/pipaya-extensions/tree/main/session-retention) | server | 0.1.1 | Deletes chats that have not been used for a while (off by default) |
 | [quota-monitor](https://github.com/dohwi/pipaya-extensions/tree/main/quota-monitor) | client | 0.4.2 | Claude, GPT and Antigravity quota gauges in the navbar |
+| [peer-names](https://github.com/dohwi/pipaya-extensions/tree/main/peer-names) | client | 0.2.0 | Shows chats' `@names` in the sidebar, `@` completion and message bubbles; pairs with peer-tools |
 
 ## Features
 

@@ -72,16 +72,35 @@
         "en": "Lets an agent message (`peer_send`) and read (`peer_read`) the other active chats of the server, by name or group.",
         "ko": "에이전트가 서버의 다른 활성 채팅을 이름이나 그룹으로 찾아 메시지를 보내고(`peer_send`) 읽을 수(`peer_read`) 있게 합니다."
       },
-      "version": "0.1.1",
+      "version": "0.3.0",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/peer-tools-v0.1.1/peer-tools",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/peer-tools-v0.3.0/peer-tools",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
         "dir": "peer-tools",
-        "ref": "peer-tools-v0.1.1",
-        "commit": "b7a2633ff2fac0996e8b00306aca41ae336610f3"
+        "ref": "peer-tools-v0.3.0",
+        "commit": "f2db752dad5a2f8c7fb4802504b67b90c3ee3b03"
+      }
+    },
+    {
+      "id": "peer-names",
+      "kind": "client",
+      "name": "Peer Names",
+      "description": "대화에 붙은 @이름을 사이드바와 헤더에 보여주고, 입력창에서 @이름·@그룹 자동완성과 강조, 다른 대화가 보낸 메시지 말풍선을 그립니다. peer-tools(서버 확장)와 함께 쓰세요.",
+      "descriptions": {
+        "en": "Shows each chat's @name in the sidebar and header, @name/@group completion and highlighting in the composer, and the bubble of messages another chat sent. Use with peer-tools (server extension).",
+        "ko": "대화에 붙은 @이름을 사이드바와 헤더에 보여주고, 입력창에서 @이름·@그룹 자동완성과 강조, 다른 대화가 보낸 메시지 말풍선을 그립니다. peer-tools(서버 확장)와 함께 쓰세요."
+      },
+      "version": "0.2.0",
+      "author": "dohwi",
+      "license": "MIT",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/peer-names-v0.2.0/peer-names",
+      "source": {
+        "type": "url",
+        "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/peer-names-v0.2.0/peer-names/dist/peer-names.json",
+        "sha256": "453374e3e2f310df5558e4ef06693a37c1805ef6c9a24ee3c381781b4dae6f92"
       }
     },
     {

@@ -30,8 +30,15 @@
       "kind": "server",
       "repo": "dohwi/pipaya-extensions",
       "dir": "peer-tools",
-      "ref": "peer-tools-v0.1.1",
-      "commit": "b7a2633ff2fac0996e8b00306aca41ae336610f3"
+      "ref": "peer-tools-v0.3.0",
+      "commit": "f2db752dad5a2f8c7fb4802504b67b90c3ee3b03"
+    },
+    {
+      "id": "peer-names",
+      "repo": "dohwi/pipaya-extensions",
+      "dir": "peer-names",
+      "ref": "peer-names-v0.2.0",
+      "sha256": "453374e3e2f310df5558e4ef06693a37c1805ef6c9a24ee3c381781b4dae6f92"
     },
     {
       "id": "prompt-templates",
