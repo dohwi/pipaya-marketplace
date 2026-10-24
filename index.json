@@ -53,14 +53,14 @@
         "en": "Shows the full upstream quota of Claude, GPT and Antigravity as navbar ring gauges and a popover. For Antigravity, the outer ring is Gemini and the inner ring is Claude/GPT.",
         "ko": "Claude · GPT · Antigravity의 upstream 전체 잔량을 navbar 원형 게이지와 팝오버로 표시합니다. Antigravity는 바깥 Gemini · 안쪽 Claude/GPT 잔량입니다."
       },
-      "version": "0.4.2",
+      "version": "0.5.0",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/quota-monitor-v0.4.2/quota-monitor",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/quota-monitor-v0.5.0/quota-monitor",
       "source": {
         "type": "url",
-        "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/quota-monitor-v0.4.2/quota-monitor/dist/quota-monitor.json",
-        "sha256": "bc847019eba80c3ae1545cb6da437746880d111c4a3789f73048b9fd460551a8"
+        "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/quota-monitor-v0.5.0/quota-monitor/dist/quota-monitor.json",
+        "sha256": "c23e3d1d046fc91e5687a3ebd5311a285037d8dd52a50581735bcf4df0a68079"
       }
     },
     {

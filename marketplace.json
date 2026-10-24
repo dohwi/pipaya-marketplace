@@ -22,8 +22,8 @@
       "id": "quota-monitor",
       "repo": "dohwi/pipaya-extensions",
       "dir": "quota-monitor",
-      "ref": "quota-monitor-v0.4.2",
-      "sha256": "bc847019eba80c3ae1545cb6da437746880d111c4a3789f73048b9fd460551a8"
+      "ref": "quota-monitor-v0.5.0",
+      "sha256": "c23e3d1d046fc91e5687a3ebd5311a285037d8dd52a50581735bcf4df0a68079"
     },
     {
       "id": "peer-tools",

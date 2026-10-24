@@ -29,7 +29,7 @@
 | [peer-tools](https://github.com/dohwi/pipaya-extensions/tree/main/peer-tools) | server | 0.3.0 | 에이전트가 서로의 대화에 메시지를 보내고(`peer_send`) 읽게 함(`peer_read`) |
 | [prompt-templates](https://github.com/dohwi/pipaya-extensions/tree/main/prompt-templates) | server | 0.2.1 | 긴 프롬프트를 Markdown 파일로 저장해 `/prompt:이름`으로 호출 |
 | [session-retention](https://github.com/dohwi/pipaya-extensions/tree/main/session-retention) | server | 0.1.1 | 한동안 쓰지 않은 대화를 자동 삭제(기본은 꺼짐) |
-| [quota-monitor](https://github.com/dohwi/pipaya-extensions/tree/main/quota-monitor) | client | 0.4.2 | Claude, GPT, Antigravity 잔량 게이지를 navbar에 표시 |
+| [quota-monitor](https://github.com/dohwi/pipaya-extensions/tree/main/quota-monitor) | client | 0.5.0 | Claude, GPT, Antigravity 잔량 게이지를 헤더에 표시 (`ui-components` 권한 필요) |
 | [peer-names](https://github.com/dohwi/pipaya-extensions/tree/main/peer-names) | client | 0.2.0 | 대화의 `@이름`을 사이드바·`@` 자동완성·메시지 말풍선에 표시. peer-tools와 함께 사용 |
 
 ## 특징
