@@ -14,6 +14,8 @@ export type Source = { type: "url"; url: string; sha256: string } | { type: "git
 export type Entry = {
 	id: string; kind: "server" | "client"; name: string; description: string; descriptions?: Record<string, string>; version: string;
 	author?: string; license?: string; homepage?: string; source: Source;
+	/** Server only: id of the client extension it needs (`pipaya.companion`); the app offers to install both. */
+	companion?: string;
 };
 export type Catalog = { name: string; description?: string; extensions: Entry[] };
 

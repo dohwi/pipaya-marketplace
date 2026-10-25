@@ -2,6 +2,7 @@
 
 1. **Server extension**: add a folder with `index.ts` and a `package.json` (`name`, `version`, `description`, `license`, `author`), plus a README stating what it reads, runs and sends, to a GitHub repository (the default ones are in [pipaya-extensions](https://github.com/dohwi/pipaya-extensions) as one top-level folder per extension) and tag a release `<id>-v<version>`. **Client extension**: the same, with `dist/<id>.json` in the folder.
    Optional: translate the description with `"pipaya": { "descriptions": { "ko": "…", "en": "…" } }` in `package.json`; the app shows the one that matches the user's language and falls back to `description`.
+   A server extension that needs a client extension names it with `"pipaya": { "companion": "<client id>" }` (the index carries it, and the app offers to install both). It can also carry the built client package in its folder with `"client": "<path>.json"`, so the app installs the client half from the server itself.
 2. Add one entry to `marketplace.json` (`repo`, `dir`, `ref`; see the README). Use an OSI license; client extensions get it from their GitHub repo.
 3. `bun scripts/pin.ts <id> <tag>` (records the commit of a server extension, the `sha256` of a client one).
 4. `bun scripts/build-index.ts`, then `bun test && bun scripts/validate.ts`, and commit `index.json`.

@@ -6,7 +6,7 @@
 // the license comes from the GitHub repository. Set GITHUB_TOKEN to avoid API rate limits.
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { type Catalog, type Entry, INDEX_FILE, LISTING_FILE, type Listings, ROOT, readJson, sha256Hex, validateListings } from "./lib.ts";
+import { type Catalog, type Entry, ID, INDEX_FILE, LISTING_FILE, type Listings, ROOT, readJson, sha256Hex, validateListings } from "./lib.ts";
 
 /** `pipaya.descriptions` of package.json: `{ "ko": "...", "en": "..." }`; anything malformed is dropped. */
 const translations = (pkg: any): { descriptions?: Record<string, string> } => {
@@ -35,6 +35,7 @@ export async function buildIndex(src: Listings, o: { root?: string; fetch?: type
 			if (sha !== l.commit) throw new Error(`${l.id}: ${l.ref} points to ${sha ?? "an unknown commit"}, listed ${l.commit} (run scripts/pin.ts)`);
 			extensions.push({
 				id: l.id, kind: "server", name: pkg.pipaya?.title ?? pkg.name ?? l.id, description: pkg.description ?? "", ...translations(pkg), version: pkg.version,
+				...(typeof pkg.pipaya?.companion === "string" && ID.test(pkg.pipaya.companion) && pkg.pipaya.companion.length <= 80 ? { companion: pkg.pipaya.companion } : {}),
 				author: authorName(pkg.author) ?? l.repo!.split("/")[0], ...(pkg.license ? { license: pkg.license } : {}),
 				homepage: `https://github.com/${l.repo}${l.dir ? `/tree/${l.ref}/${l.dir}` : ""}`, source: { type: "git", repo: l.repo!, ...(l.dir ? { dir: l.dir } : {}), ref: l.ref!, commit: l.commit! },
 			});

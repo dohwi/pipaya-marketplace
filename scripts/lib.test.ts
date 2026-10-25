@@ -47,13 +47,13 @@ test("a server extension is read from its folder and pinned to a commit", async 
 	const urls: string[] = [];
 	const fake = (async (url: string) => {
 		urls.push(String(url));
-		if (String(url).includes("raw.githubusercontent.com")) return new Response(JSON.stringify({ name: "pipaya-extension-x", version: "1.0.0", description: "d", license: "MIT", author: "me", pipaya: { title: "X" } }));
+		if (String(url).includes("raw.githubusercontent.com")) return new Response(JSON.stringify({ name: "pipaya-extension-x", version: "1.0.0", description: "d", license: "MIT", author: "me", pipaya: { title: "X", companion: "x-ui" } }));
 		if (String(url).includes("/commits/")) return Response.json({ sha: C });
 		return new Response("", { status: 404 });
 	}) as unknown as typeof fetch;
 	const idx = await buildIndex({ name: "m", extensions: [{ id: "x", kind: "server", repo: "o/r", dir: "x", ref: "x-v1.0.0", commit: C }] }, { fetch: fake });
 	expect(urls[0]).toBe("https://raw.githubusercontent.com/o/r/x-v1.0.0/x/package.json");
-	expect(idx.extensions[0]).toMatchObject({ id: "x", kind: "server", name: "X", version: "1.0.0", license: "MIT", source: { type: "git", repo: "o/r", dir: "x", ref: "x-v1.0.0", commit: C } });
+	expect(idx.extensions[0]).toMatchObject({ id: "x", kind: "server", name: "X", version: "1.0.0", license: "MIT", companion: "x-ui", source: { type: "git", repo: "o/r", dir: "x", ref: "x-v1.0.0", commit: C } });
 });
 
 test("a server extension that is a whole repository has no dir", async () => {
