@@ -22,16 +22,16 @@
       "id": "quota-monitor",
       "repo": "dohwi/pipaya-extensions",
       "dir": "quota-monitor",
-      "ref": "quota-monitor-v0.6.0",
-      "sha256": "2368e116c57962b128dd3a97c1bb5490887ba725299281e30e6cf2b433b1d99f"
+      "ref": "quota-monitor-v0.6.1",
+      "sha256": "da219af690366822d28617fa43342bacaa9fbeb8cf813fa1b58fe8308c5c5b72"
     },
     {
       "id": "peer-tools",
       "kind": "server",
       "repo": "dohwi/pipaya-extensions",
       "dir": "peer-tools",
-      "ref": "peer-tools-v0.4.0",
-      "commit": "2d905c2b138bc54afdf4887ec95d2840f3912e6f"
+      "ref": "peer-tools-v0.4.1",
+      "commit": "9e0f776504d7c271abd71962ed513885aa0496e8"
     },
     {
       "id": "peer-names",

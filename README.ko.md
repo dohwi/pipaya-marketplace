@@ -24,13 +24,13 @@
 
 | 확장 | 종류 | 버전 | 설명 |
 |---|---|---|---|
-| [guard](https://github.com/dohwi/pipaya-extensions/tree/main/guard) | server | 0.1.1 | 위험한 셸 명령(`rm -rf /`, `mkfs`, 포크 폭탄)을 실행 전에 차단 |
-| [ask-user](https://github.com/dohwi/pipaya-extensions/tree/main/ask-user) | server | 0.1.1 | 에이전트가 선택지·추천과 함께 질문하고 답을 기다리게 함 |
-| [peer-tools](https://github.com/dohwi/pipaya-extensions/tree/main/peer-tools) | server | 0.3.0 | 에이전트가 서로의 대화에 메시지를 보내고(`peer_send`) 읽게 함(`peer_read`) |
+| [guard](https://github.com/dohwi/pipaya-extensions/tree/main/guard) | server | 0.1.2 | 위험한 셸 명령(`rm -rf /`, `mkfs`, 포크 폭탄)을 실행 전에 차단 |
+| [ask-user](https://github.com/dohwi/pipaya-extensions/tree/main/ask-user) | server | 0.1.2 | 에이전트가 선택지·추천과 함께 질문하고 답을 기다리게 함 |
+| [peer-tools](https://github.com/dohwi/pipaya-extensions/tree/main/peer-tools) | server | 0.4.1 | 에이전트가 서로의 대화에 메시지를 보내고(`peer_send`) 읽게 함(`peer_read`) |
 | [prompt-templates](https://github.com/dohwi/pipaya-extensions/tree/main/prompt-templates) | server | 0.2.1 | 긴 프롬프트를 Markdown 파일로 저장해 `/prompt:이름`으로 호출 |
-| [session-retention](https://github.com/dohwi/pipaya-extensions/tree/main/session-retention) | server | 0.1.1 | 한동안 쓰지 않은 대화를 자동 삭제(기본은 꺼짐) |
-| [quota-monitor](https://github.com/dohwi/pipaya-extensions/tree/main/quota-monitor) | client | 0.5.0 | Claude, GPT, Antigravity 잔량 게이지를 헤더에 표시 (`ui-components` 권한 필요) |
-| [peer-names](https://github.com/dohwi/pipaya-extensions/tree/main/peer-names) | client | 0.2.0 | 대화의 `@이름`을 사이드바·`@` 자동완성·메시지 말풍선에 표시. peer-tools와 함께 사용 |
+| [session-retention](https://github.com/dohwi/pipaya-extensions/tree/main/session-retention) | server | 0.2.1 | 한동안 쓰지 않은 대화를 자동 삭제(기본은 꺼짐) |
+| [quota-monitor](https://github.com/dohwi/pipaya-extensions/tree/main/quota-monitor) | client | 0.6.1 | Claude, GPT, Antigravity 잔량 게이지를 헤더에 표시 (`ui-components` 권한 필요) |
+| [peer-names](https://github.com/dohwi/pipaya-extensions/tree/main/peer-names) | client | 0.2.1 | 대화의 `@이름`을 사이드바·`@` 자동완성·메시지 말풍선에 표시. peer-tools와 함께 사용 |
 
 ## 특징
 

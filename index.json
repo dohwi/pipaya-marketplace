@@ -48,19 +48,19 @@
       "id": "quota-monitor",
       "kind": "client",
       "name": "Quota Monitor",
-      "description": "Claude · GPT · Antigravity의 upstream 전체 잔량을 navbar 원형 게이지와 팝오버로 표시합니다. Antigravity는 바깥 Gemini · 안쪽 Claude/GPT 잔량입니다.",
+      "description": "Claude · GPT · Antigravity의 upstream 전체 잔량을 상단 바 원형 게이지와 팝오버로 표시합니다. Antigravity는 바깥 Gemini · 안쪽 Claude/GPT 잔량입니다.",
       "descriptions": {
-        "en": "Shows the full upstream quota of Claude, GPT and Antigravity as navbar ring gauges and a popover. For Antigravity, the outer ring is Gemini and the inner ring is Claude/GPT.",
-        "ko": "Claude · GPT · Antigravity의 upstream 전체 잔량을 navbar 원형 게이지와 팝오버로 표시합니다. Antigravity는 바깥 Gemini · 안쪽 Claude/GPT 잔량입니다."
+        "en": "Shows the full upstream quota of Claude, GPT and Antigravity as ring gauges in the header with a popover. For Antigravity, the outer ring is Gemini and the inner ring is Claude/GPT.",
+        "ko": "Claude · GPT · Antigravity의 upstream 전체 잔량을 상단 바 원형 게이지와 팝오버로 표시합니다. Antigravity는 바깥 Gemini · 안쪽 Claude/GPT 잔량입니다."
       },
-      "version": "0.6.0",
+      "version": "0.6.1",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/quota-monitor-v0.6.0/quota-monitor",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/quota-monitor-v0.6.1/quota-monitor",
       "source": {
         "type": "url",
-        "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/quota-monitor-v0.6.0/quota-monitor/dist/quota-monitor.json",
-        "sha256": "2368e116c57962b128dd3a97c1bb5490887ba725299281e30e6cf2b433b1d99f"
+        "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/quota-monitor-v0.6.1/quota-monitor/dist/quota-monitor.json",
+        "sha256": "da219af690366822d28617fa43342bacaa9fbeb8cf813fa1b58fe8308c5c5b72"
       }
     },
     {
@@ -72,17 +72,17 @@
         "en": "Lets an agent message (`peer_send`) and read (`peer_read`) the other active chats of the server, by name or group.",
         "ko": "에이전트가 서버의 다른 활성 채팅을 이름이나 그룹으로 찾아 메시지를 보내고(`peer_send`) 읽을 수(`peer_read`) 있게 합니다."
       },
-      "version": "0.4.0",
+      "version": "0.4.1",
       "companion": "peer-names",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/peer-tools-v0.4.0/peer-tools",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/peer-tools-v0.4.1/peer-tools",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
         "dir": "peer-tools",
-        "ref": "peer-tools-v0.4.0",
-        "commit": "2d905c2b138bc54afdf4887ec95d2840f3912e6f"
+        "ref": "peer-tools-v0.4.1",
+        "commit": "9e0f776504d7c271abd71962ed513885aa0496e8"
       }
     },
     {
