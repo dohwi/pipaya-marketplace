@@ -53,8 +53,8 @@
       "kind": "server",
       "repo": "dohwi/pipaya-extensions",
       "dir": "image-generation",
-      "ref": "image-generation-v0.1.0",
-      "commit": "e160cefcceb72dca5ac19e9b9a9c9b20b18d0db2"
+      "ref": "image-generation-v0.2.0",
+      "commit": "336907e89155b4eb103167ed0d221e83030a9fee"
     }
   ]
 }
