@@ -124,27 +124,6 @@
         "ref": "prompt-templates-v0.2.1",
         "commit": "33f824ff8e8c55e5f94fb0ee09c0e8ccdcb9a1cc"
       }
-    },
-    {
-      "id": "image-generation",
-      "kind": "server",
-      "name": "Image Generation",
-      "description": "Runs the image models of your connections: pick one in a chat, describe a picture, and the reply is the picture. A follow-up edits the last one.",
-      "descriptions": {
-        "en": "Runs the image models of your connections: pick one in a chat, describe a picture, and the reply is the picture. A follow-up edits the last one.",
-        "ko": "연결에 있는 이미지 모델을 실행합니다. 대화에서 이미지 모델을 고르고 그림을 설명하면 답이 그림으로 옵니다. 이어서 보내면 마지막 그림을 고칩니다."
-      },
-      "version": "0.2.0",
-      "author": "dohwi",
-      "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/image-generation-v0.2.0/image-generation",
-      "source": {
-        "type": "git",
-        "repo": "dohwi/pipaya-extensions",
-        "dir": "image-generation",
-        "ref": "image-generation-v0.2.0",
-        "commit": "336907e89155b4eb103167ed0d221e83030a9fee"
-      }
     }
   ]
 }

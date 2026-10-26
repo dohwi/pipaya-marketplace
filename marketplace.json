@@ -47,14 +47,6 @@
       "dir": "prompt-templates",
       "ref": "prompt-templates-v0.2.1",
       "commit": "33f824ff8e8c55e5f94fb0ee09c0e8ccdcb9a1cc"
-    },
-    {
-      "id": "image-generation",
-      "kind": "server",
-      "repo": "dohwi/pipaya-extensions",
-      "dir": "image-generation",
-      "ref": "image-generation-v0.2.0",
-      "commit": "336907e89155b4eb103167ed0d221e83030a9fee"
     }
   ]
 }

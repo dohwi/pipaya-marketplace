@@ -28,7 +28,6 @@ The public catalog of [pipaya](https://github.com/dohwi/pipaya) extensions. `mar
 | [ask-user](https://github.com/dohwi/pipaya-extensions/tree/main/ask-user) | server | 0.1.2 | Lets the agent ask you a question (options, recommended choice) and wait for the answer |
 | [peer-tools](https://github.com/dohwi/pipaya-extensions/tree/main/peer-tools) | server | 0.4.1 | Lets agents message (`peer_send`) and read (`peer_read`) each other's chats |
 | [prompt-templates](https://github.com/dohwi/pipaya-extensions/tree/main/prompt-templates) | server | 0.2.1 | Save a long prompt as a Markdown file and call it with `/prompt:name` |
-| [image-generation](https://github.com/dohwi/pipaya-extensions/tree/main/image-generation) | server | 0.2.0 | Runs the image models of your connections: describe a picture in a chat, the reply is the picture |
 | [quota-monitor](https://github.com/dohwi/pipaya-extensions/tree/main/quota-monitor) | client | 0.6.1 | Claude, GPT and Antigravity quota gauges in the header (needs the `ui-components` permission) |
 | [peer-names](https://github.com/dohwi/pipaya-extensions/tree/main/peer-names) | client | 0.2.1 | Shows chats' `@names` in the sidebar, `@` completion and message bubbles; pairs with peer-tools |
 
