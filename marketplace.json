@@ -49,12 +49,12 @@
       "commit": "33f824ff8e8c55e5f94fb0ee09c0e8ccdcb9a1cc"
     },
     {
-      "id": "session-retention",
+      "id": "image-generation",
       "kind": "server",
       "repo": "dohwi/pipaya-extensions",
-      "dir": "session-retention",
-      "ref": "session-retention-v0.2.1",
-      "commit": "2d905c2b138bc54afdf4887ec95d2840f3912e6f"
+      "dir": "image-generation",
+      "ref": "image-generation-v0.1.0",
+      "commit": "e160cefcceb72dca5ac19e9b9a9c9b20b18d0db2"
     }
   ]
 }

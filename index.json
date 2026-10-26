@@ -126,24 +126,24 @@
       }
     },
     {
-      "id": "session-retention",
+      "id": "image-generation",
       "kind": "server",
-      "name": "Session Retention",
-      "description": "Deletes chats that have not been used for a while. Off until you set a number of days.",
+      "name": "Image Generation",
+      "description": "Adds image-generation models: pick one in a chat, describe a picture, and the reply is the picture. A follow-up edits the last one.",
       "descriptions": {
-        "en": "Deletes chats that have not been used for a while. Off until you set a number of days.",
-        "ko": "한동안 쓰지 않은 채팅을 삭제합니다. 일수를 설정하기 전에는 꺼져 있습니다."
+        "en": "Adds image-generation models: pick one in a chat, describe a picture, and the reply is the picture. A follow-up edits the last one.",
+        "ko": "이미지 생성 모델을 추가합니다. 대화에서 모델을 고르고 그림을 설명하면 답이 그림으로 옵니다. 이어서 보내면 마지막 그림을 고칩니다."
       },
-      "version": "0.2.1",
+      "version": "0.1.0",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/session-retention-v0.2.1/session-retention",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/image-generation-v0.1.0/image-generation",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
-        "dir": "session-retention",
-        "ref": "session-retention-v0.2.1",
-        "commit": "2d905c2b138bc54afdf4887ec95d2840f3912e6f"
+        "dir": "image-generation",
+        "ref": "image-generation-v0.1.0",
+        "commit": "e160cefcceb72dca5ac19e9b9a9c9b20b18d0db2"
       }
     }
   ]
