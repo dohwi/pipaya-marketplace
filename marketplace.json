@@ -11,34 +11,11 @@
       "commit": "2d905c2b138bc54afdf4887ec95d2840f3912e6f"
     },
     {
-      "id": "ask-user",
-      "kind": "server",
-      "repo": "dohwi/pipaya-extensions",
-      "dir": "ask-user",
-      "ref": "ask-user-v0.1.2",
-      "commit": "2d905c2b138bc54afdf4887ec95d2840f3912e6f"
-    },
-    {
       "id": "quota-monitor",
       "repo": "dohwi/pipaya-extensions",
       "dir": "quota-monitor",
       "ref": "quota-monitor-v0.6.1",
       "sha256": "da219af690366822d28617fa43342bacaa9fbeb8cf813fa1b58fe8308c5c5b72"
-    },
-    {
-      "id": "peer-tools",
-      "kind": "server",
-      "repo": "dohwi/pipaya-extensions",
-      "dir": "peer-tools",
-      "ref": "peer-tools-v0.4.1",
-      "commit": "9e0f776504d7c271abd71962ed513885aa0496e8"
-    },
-    {
-      "id": "peer-names",
-      "repo": "dohwi/pipaya-extensions",
-      "dir": "peer-names",
-      "ref": "peer-names-v0.2.1",
-      "sha256": "72630cf368e9cc1a70d00ac72c19409a7873cc02b4353d053abb87ff1103b07d"
     },
     {
       "id": "prompt-templates",

@@ -24,27 +24,6 @@
       }
     },
     {
-      "id": "ask-user",
-      "kind": "server",
-      "name": "Ask User",
-      "description": "Lets the agent ask you a question (with options and a recommended choice) and wait for your answer.",
-      "descriptions": {
-        "en": "Lets the agent ask you a question (with options and a recommended choice) and wait for your answer.",
-        "ko": "에이전트가 선택지와 추천안을 곁들여 질문하고, 답을 기다리게 합니다."
-      },
-      "version": "0.1.2",
-      "author": "dohwi",
-      "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/ask-user-v0.1.2/ask-user",
-      "source": {
-        "type": "git",
-        "repo": "dohwi/pipaya-extensions",
-        "dir": "ask-user",
-        "ref": "ask-user-v0.1.2",
-        "commit": "2d905c2b138bc54afdf4887ec95d2840f3912e6f"
-      }
-    },
-    {
       "id": "quota-monitor",
       "kind": "client",
       "name": "Quota Monitor",
@@ -61,47 +40,6 @@
         "type": "url",
         "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/quota-monitor-v0.6.1/quota-monitor/dist/quota-monitor.json",
         "sha256": "da219af690366822d28617fa43342bacaa9fbeb8cf813fa1b58fe8308c5c5b72"
-      }
-    },
-    {
-      "id": "peer-tools",
-      "kind": "server",
-      "name": "Peer Tools",
-      "description": "Lets an agent message (`peer_send`) and read (`peer_read`) the other active chats of the server, by name or group.",
-      "descriptions": {
-        "en": "Lets an agent message (`peer_send`) and read (`peer_read`) the other active chats of the server, by name or group.",
-        "ko": "에이전트가 서버의 다른 활성 채팅을 이름이나 그룹으로 찾아 메시지를 보내고(`peer_send`) 읽을 수(`peer_read`) 있게 합니다."
-      },
-      "version": "0.4.1",
-      "companion": "peer-names",
-      "author": "dohwi",
-      "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/peer-tools-v0.4.1/peer-tools",
-      "source": {
-        "type": "git",
-        "repo": "dohwi/pipaya-extensions",
-        "dir": "peer-tools",
-        "ref": "peer-tools-v0.4.1",
-        "commit": "9e0f776504d7c271abd71962ed513885aa0496e8"
-      }
-    },
-    {
-      "id": "peer-names",
-      "kind": "client",
-      "name": "Peer Names",
-      "description": "대화에 붙은 @이름을 사이드바와 헤더에 보여주고, 입력창에서 @이름·@그룹 자동완성과 강조, 다른 대화가 보낸 메시지 말풍선을 그립니다. peer-tools(서버 확장)와 함께 쓰세요.",
-      "descriptions": {
-        "en": "Shows each chat's @name in the sidebar and header, @name/@group completion and highlighting in the composer, and the bubble of messages another chat sent. Use with peer-tools (server extension).",
-        "ko": "대화에 붙은 @이름을 사이드바와 헤더에 보여주고, 입력창에서 @이름·@그룹 자동완성과 강조, 다른 대화가 보낸 메시지 말풍선을 그립니다. peer-tools(서버 확장)와 함께 쓰세요."
-      },
-      "version": "0.2.1",
-      "author": "dohwi",
-      "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/peer-names-v0.2.1/peer-names",
-      "source": {
-        "type": "url",
-        "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/peer-names-v0.2.1/peer-names/dist/peer-names.json",
-        "sha256": "72630cf368e9cc1a70d00ac72c19409a7873cc02b4353d053abb87ff1103b07d"
       }
     },
     {
