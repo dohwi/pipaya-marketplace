@@ -72,14 +72,14 @@
         "en": "Adds a microphone button to the composer. Your voice is transcribed by any OpenAI-compatible speech-to-text API and the text lands in the input box.",
         "ko": "입력창에 마이크 버튼을 추가합니다. 음성은 OpenAI 호환 음성 인식 API로 변환되어 입력창에 들어갑니다."
       },
-      "version": "0.5.0",
+      "version": "0.6.0",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/voice-input-v0.5.0/voice-input",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/voice-input-v0.6.0/voice-input",
       "source": {
         "type": "url",
-        "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/voice-input-v0.5.0/voice-input/dist/voice-input.json",
-        "sha256": "72ec505dbae889c48e4443fd87f4d445039ef7b0ecfd4d00f70f0e239be01d91"
+        "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/voice-input-v0.6.0/voice-input/dist/voice-input.json",
+        "sha256": "9092741e37435f50149e28f124a5e27e7ed1e5540275e291b406b920abebbac3"
       }
     }
   ]
