@@ -62,6 +62,25 @@
         "ref": "prompt-templates-v0.2.1",
         "commit": "33f824ff8e8c55e5f94fb0ee09c0e8ccdcb9a1cc"
       }
+    },
+    {
+      "id": "voice-input",
+      "kind": "client",
+      "name": "Voice Input",
+      "description": "입력창에 마이크 버튼을 추가합니다. 말한 내용을 OpenAI 호환 음성 인식 API(OpenAI, Groq, Mistral, 로컬 Whisper 등)로 받아써서 입력창에 넣습니다. / Adds a microphone button to the composer and dictates through any OpenAI-compatible transcription API.",
+      "descriptions": {
+        "en": "Adds a microphone button to the composer. Your voice is transcribed by any OpenAI-compatible speech-to-text API and the text lands in the input box.",
+        "ko": "입력창에 마이크 버튼을 추가합니다. 음성은 OpenAI 호환 음성 인식 API로 변환되어 입력창에 들어갑니다."
+      },
+      "version": "0.2.1",
+      "author": "dohwi",
+      "license": "MIT",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/voice-input-v0.2.1/voice-input",
+      "source": {
+        "type": "url",
+        "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/voice-input-v0.2.1/voice-input/dist/voice-input.json",
+        "sha256": "3e55fd5f4a169e446980866421c71c0512fa1329d9200ee5612c9122e1bd3104"
+      }
     }
   ]
 }
