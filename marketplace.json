@@ -29,8 +29,8 @@
       "id": "voice-input",
       "repo": "dohwi/pipaya-extensions",
       "dir": "voice-input",
-      "ref": "voice-input-v0.2.1",
-      "sha256": "3e55fd5f4a169e446980866421c71c0512fa1329d9200ee5612c9122e1bd3104"
+      "ref": "voice-input-v0.3.0",
+      "sha256": "a5ba4db581673def2f193957788f25fa1746138555c8af2b8cf60d61e5bc7b60"
     }
   ]
 }
