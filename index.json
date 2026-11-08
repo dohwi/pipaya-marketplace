@@ -67,19 +67,19 @@
       "id": "voice-input",
       "kind": "client",
       "name": "Voice Input",
-      "description": "입력창에 마이크 버튼을 추가합니다. 말한 내용을 OpenAI 호환 음성 인식 API(OpenAI, Groq, Mistral, 로컬 Whisper 등)로 받아써서 입력창에 넣습니다. / Adds a microphone button to the composer and dictates through any OpenAI-compatible transcription API.",
+      "description": "[대체됨] pipaya 0.8.0부터 음성 입력이 앱에 내장되었습니다. 설정 > 음성 입력을 쓰고 이 확장은 끄세요. 입력창에 마이크 버튼을 추가합니다. 말한 내용을 OpenAI 호환 음성 인식 API(OpenAI, Groq, Mistral, 로컬 Whisper 등)로 받아써서 입력창에 넣습니다. / [Superseded] Built into pipaya 0.8.0+; use Settings > Voice input and turn this extension off. Adds a microphone button to the composer and dictates through any OpenAI-compatible transcription API.",
       "descriptions": {
-        "en": "Adds a microphone button to the composer. Your voice is transcribed by any OpenAI-compatible speech-to-text API and the text lands in the input box.",
-        "ko": "입력창에 마이크 버튼을 추가합니다. 음성은 OpenAI 호환 음성 인식 API로 변환되어 입력창에 들어갑니다."
+        "en": "[Superseded] Built into pipaya 0.8.0+; use Settings > Voice input and turn this extension off. Adds a microphone button to the composer.",
+        "ko": "[대체됨] pipaya 0.8.0부터 음성 입력이 앱에 내장되었습니다. 설정 > 음성 입력을 쓰고 이 확장은 끄세요. 입력창에 마이크 버튼을 추가합니다."
       },
-      "version": "0.6.0",
+      "version": "0.6.1",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/voice-input-v0.6.0/voice-input",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/voice-input-v0.6.1/voice-input",
       "source": {
         "type": "url",
-        "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/voice-input-v0.6.0/voice-input/dist/voice-input.json",
-        "sha256": "9092741e37435f50149e28f124a5e27e7ed1e5540275e291b406b920abebbac3"
+        "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/voice-input-v0.6.1/voice-input/dist/voice-input.json",
+        "sha256": "6d7aea3a7eb49f61d05f33714e1f07abeb65e4728c91a7ff8747c84bd318c78a"
       }
     }
   ]
