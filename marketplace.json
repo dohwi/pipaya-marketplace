@@ -24,13 +24,6 @@
       "dir": "prompt-templates",
       "ref": "prompt-templates-v0.2.1",
       "commit": "33f824ff8e8c55e5f94fb0ee09c0e8ccdcb9a1cc"
-    },
-    {
-      "id": "voice-input",
-      "repo": "dohwi/pipaya-extensions",
-      "dir": "voice-input",
-      "ref": "voice-input-v0.6.1",
-      "sha256": "6d7aea3a7eb49f61d05f33714e1f07abeb65e4728c91a7ff8747c84bd318c78a"
     }
   ]
 }
