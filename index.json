@@ -72,16 +72,16 @@
         "en": "Mirrors the settings of a primary pipaya server onto this one (model connections, defaults, MCP servers, skills, tools).",
         "ko": "기준(pimary) 서버의 설정을 이 서버로 그대로 가져옵니다(모델 연결, 기본값, MCP 서버, 스킬, 도구)."
       },
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/server-sync-v0.1.0/server-sync",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/server-sync-v0.1.1/server-sync",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
         "dir": "server-sync",
-        "ref": "server-sync-v0.1.0",
-        "commit": "0fcbaee2ab1fe8bbd134a30e3c9e82387b56cfdc"
+        "ref": "server-sync-v0.1.1",
+        "commit": "23c9e16e95d601fbc062b788b3ba69bf11897662"
       }
     }
   ]
