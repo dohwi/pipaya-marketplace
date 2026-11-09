@@ -24,6 +24,14 @@
       "dir": "prompt-templates",
       "ref": "prompt-templates-v0.2.1",
       "commit": "33f824ff8e8c55e5f94fb0ee09c0e8ccdcb9a1cc"
+    },
+    {
+      "id": "server-sync",
+      "kind": "server",
+      "repo": "dohwi/pipaya-extensions",
+      "dir": "server-sync",
+      "ref": "server-sync-v0.1.0",
+      "commit": "0fcbaee2ab1fe8bbd134a30e3c9e82387b56cfdc"
     }
   ]
 }
