@@ -72,16 +72,16 @@
         "en": "Mirrors a primary pipaya server's settings onto this one: model connections, defaults, MCP servers, skills, tools. The primary shows its address and token to copy; a follower needs only the address.",
         "ko": "기준 서버의 설정(모델 연결, 기본값, MCP 서버, 스킬, 도구)을 이 서버로 그대로 복제합니다. 기준 서버는 자기 주소와 토큰을 화면에 보여주고, 팔로워는 주소만 넣으면 연결됩니다."
       },
-      "version": "0.5.1",
+      "version": "0.5.2",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/server-sync-v0.5.1/server-sync",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/server-sync-v0.5.2/server-sync",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
         "dir": "server-sync",
-        "ref": "server-sync-v0.5.1",
-        "commit": "6f47d4f89dc2ae63ed29d6f3a8922a96b012af15"
+        "ref": "server-sync-v0.5.2",
+        "commit": "d521c3681fe8923f9e8da6fa8f4ca1c44f0df3c9"
       }
     }
   ]
