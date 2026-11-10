@@ -8,19 +8,19 @@
       "name": "Guard",
       "description": "Blocks destructive shell commands (wiping / or ~, formatting or overwriting a disk, fork bombs) before they run.",
       "descriptions": {
-        "en": "Blocks destructive shell commands (wiping / or ~, formatting or overwriting a disk, fork bombs) before they run.",
-        "ko": "파괴적인 셸 명령(/·~ 삭제, 디스크 포맷·덮어쓰기, 포크 폭탄)을 실행되기 전에 차단합니다."
+        "en": "Stops a bash command before it runs when it would wipe / or ~, format or overwrite a disk, fork-bomb the machine or change the permissions of the whole disk. Each family can be switched off below.",
+        "ko": "bash 명령이 /·~ 전체 삭제, 디스크 포맷·덮어쓰기, 포크 폭탄, 디스크 전체 권한 변경을 하려 하면 실행 전에 막습니다. 항목별로 아래에서 끌 수 있습니다."
       },
-      "version": "0.1.2",
+      "version": "0.2.0",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/guard-v0.1.2/guard",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/guard-v0.2.0/guard",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
         "dir": "guard",
-        "ref": "guard-v0.1.2",
-        "commit": "2d905c2b138bc54afdf4887ec95d2840f3912e6f"
+        "ref": "guard-v0.2.0",
+        "commit": "b535f7fdc2bfb099b30b3aaf495e55f213af765b"
       }
     },
     {
@@ -67,21 +67,21 @@
       "id": "server-sync",
       "kind": "server",
       "name": "Server Sync",
-      "description": "Mirrors the settings of a primary pipaya server onto this one (model connections, defaults, MCP servers, skills, tools).",
+      "description": "Mirrors a primary pipaya server's settings onto this one: model connections, defaults, MCP servers, skills, tools.",
       "descriptions": {
-        "en": "Mirrors the settings of a primary pipaya server onto this one (model connections, defaults, MCP servers, skills, tools).",
-        "ko": "기준(pimary) 서버의 설정을 이 서버로 그대로 가져옵니다(모델 연결, 기본값, MCP 서버, 스킬, 도구)."
+        "en": "Mirrors a primary pipaya server's settings onto this one: model connections, defaults, MCP servers, skills, tools.",
+        "ko": "기준 서버의 설정(모델 연결, 기본값, MCP 서버, 스킬, 도구)을 이 서버로 그대로 복제합니다."
       },
-      "version": "0.1.1",
+      "version": "0.2.0",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/server-sync-v0.1.1/server-sync",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/server-sync-v0.2.0/server-sync",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
         "dir": "server-sync",
-        "ref": "server-sync-v0.1.1",
-        "commit": "23c9e16e95d601fbc062b788b3ba69bf11897662"
+        "ref": "server-sync-v0.2.0",
+        "commit": "45a40628dd76cf6d2d35325d586c3ca9573ba6ff"
       }
     }
   ]
