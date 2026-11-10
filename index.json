@@ -11,16 +11,16 @@
         "en": "Stops a bash command before it runs when it would wipe / or ~, format or overwrite a disk, fork-bomb the machine or change the permissions of the whole disk. Each family can be switched off below.",
         "ko": "bash 명령이 /·~ 전체 삭제, 디스크 포맷·덮어쓰기, 포크 폭탄, 디스크 전체 권한 변경을 하려 하면 실행 전에 막습니다. 항목별로 아래에서 끌 수 있습니다."
       },
-      "version": "0.2.0",
+      "version": "0.2.2",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/guard-v0.2.0/guard",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/guard-v0.2.2/guard",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
         "dir": "guard",
-        "ref": "guard-v0.2.0",
-        "commit": "b535f7fdc2bfb099b30b3aaf495e55f213af765b"
+        "ref": "guard-v0.2.2",
+        "commit": "a107de0ebb22855e3cf1c03304ea8e1194fb4d1d"
       }
     },
     {

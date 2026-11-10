@@ -7,8 +7,8 @@
       "kind": "server",
       "repo": "dohwi/pipaya-extensions",
       "dir": "guard",
-      "ref": "guard-v0.2.0",
-      "commit": "b535f7fdc2bfb099b30b3aaf495e55f213af765b"
+      "ref": "guard-v0.2.2",
+      "commit": "a107de0ebb22855e3cf1c03304ea8e1194fb4d1d"
     },
     {
       "id": "quota-monitor",
