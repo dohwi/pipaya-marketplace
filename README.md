@@ -69,6 +69,7 @@ Set `PIPAYA_MARKET_URL` to a raw `index.json` URL to read a remote catalog.
 - **Server extension**: put `index.ts` and `package.json` (`name`, `version`, `description`, `license`, `author`) in the folder (or at the repository root). Tag a release, then run `bun scripts/pin.ts my-ext my-ext-v1.0.0` to record the commit the tag points to; CI and the installer refuse it if the tag later moves. Installing copies that folder only.
 - **Client extension**: tag a release that contains `<dir>/dist/<id>.json`, then run `bun scripts/pin.ts my-ui my-ui-v1.0.0` to record the tag and its `sha256`. `ref` must be a tag or commit, never a branch.
 - Run `bun scripts/build-index.ts` and commit the generated `index.json` (the app reads it; CI fails when it is stale).
+- **Updates follow the tags.** Once listed, a new tag `<id>-v<x.y.z>` is all it takes: the `bump` workflow pins the newest one and rebuilds `index.json` (hourly, on a release notice, or `bun scripts/bump.ts` locally). It never moves a listing back, and skips pre-releases.
 
 ## Project structure
 
@@ -76,7 +77,7 @@ Set `PIPAYA_MARKET_URL` to a raw `index.json` URL to read a remote catalog.
 pipaya-marketplace/
 ├── marketplace.json      # where each extension lives (hand-written)
 ├── index.json            # generated: names, versions, licenses
-├── scripts/              # market.ts CLI, build-index.ts, pin.ts, tests
+├── scripts/              # market.ts CLI, build-index.ts, pin.ts, bump.ts, tests
 └── .github/              # CI and README assets
 ```
 

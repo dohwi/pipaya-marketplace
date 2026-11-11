@@ -7,4 +7,7 @@
 3. `bun scripts/pin.ts <id> <tag>` (records the commit of a server extension, the `sha256` of a client one).
 4. `bun scripts/build-index.ts`, then `bun test && bun scripts/validate.ts`, and commit `index.json`.
 5. Open a PR. Reviewers check: no network calls or file access that the README does not state, no secrets, no obfuscated code.
-6. Updates: bump the version (server) or pin the new tag (client).
+6. Updates: tag a new release `<id>-v<version>`. The `bump` workflow pins the newest tag of every listing and rebuilds
+   `index.json` (on a release notice from the extension repo, every hour, or by hand; locally `bun scripts/bump.ts`).
+   In [pipaya-extensions](https://github.com/dohwi/pipaya-extensions) even the tag is automatic: bump `version` in the
+   folder's `package.json` and push.

@@ -69,6 +69,7 @@ bun scripts/market.ts remove guard
 - **서버 확장**: 폴더(또는 저장소 루트)에 `index.ts`와 `package.json`(`name`, `version`, `description`, `license`, `author`)을 둡니다. 태그를 만든 뒤 `bun scripts/pin.ts my-ext my-ext-v1.0.0`으로 태그가 가리키는 커밋을 기록합니다. 태그가 나중에 다른 커밋으로 옮겨지면 CI와 설치가 거부합니다. 설치할 때는 그 폴더만 복사합니다.
 - **클라이언트 확장**: 폴더에 `dist/<id>.json`이 담긴 태그를 만든 뒤 `bun scripts/pin.ts my-ui my-ui-v1.0.0`으로 태그와 `sha256`을 기록합니다. `ref`는 태그나 커밋이어야 하며 브랜치는 안 됩니다.
 - `bun scripts/build-index.ts`를 실행해 생성된 `index.json`을 커밋합니다. 앱이 이 파일을 읽고, 오래되면 CI가 실패합니다.
+- **업데이트는 태그를 따라갑니다.** 한 번 등록하면 새 태그 `<id>-v<x.y.z>`만 만들면 됩니다. `bump` 워크플로가 가장 새 태그로 고정하고 `index.json`을 다시 만듭니다(매시간, 릴리스 알림을 받을 때, 또는 로컬에서 `bun scripts/bump.ts`). 이전 버전으로 되돌리지 않고 프리릴리스는 건너뜁니다.
 
 ## 프로젝트 구조
 
@@ -76,7 +77,7 @@ bun scripts/market.ts remove guard
 pipaya-marketplace/
 ├── marketplace.json      # 확장 위치 목록 (직접 작성)
 ├── index.json            # 자동 생성: 이름, 버전, 라이선스
-├── scripts/              # market.ts CLI, build-index.ts, pin.ts, 테스트
+├── scripts/              # market.ts CLI, build-index.ts, pin.ts, bump.ts, 테스트
 └── .github/              # CI, README 에셋
 ```
 

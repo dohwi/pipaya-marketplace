@@ -81,3 +81,27 @@ test("translations come from pipaya.descriptions of package.json", async () => {
 	const out = await buildIndex({ name: "x", extensions: [{ id: "x", kind: "server", repo: "o/r", ref: "x-v1.0.0", commit: C }] }, { fetch: fetcher });
 	expect(out.extensions[0]!.descriptions).toEqual({ ko: "디" });
 });
+
+test("bump picks the newest release tag and never moves back", async () => {
+	const { bump, latestTag } = await import("./bump.ts");
+	expect(latestTag("x", ["x-v0.9.0", "x-v0.10.0", "x-v1.0.0-rc.1", "xy-v9.0.0", "x-vnope"])).toBe("x-v0.10.0");
+	expect(latestTag("x", ["y-v1.0.0"])).toBeUndefined();
+	const fake = (async (url: string) => {
+		const u = String(url);
+		if (u.includes("/matching-refs/tags/x-v")) return Response.json([{ ref: "refs/tags/x-v1.0.0" }, { ref: "refs/tags/x-v1.1.0" }]);
+		if (u.includes("/matching-refs/tags/old-v")) return Response.json([{ ref: "refs/tags/old-v0.1.0" }]);
+		if (u.includes("/matching-refs/tags/qm-v")) return Response.json([{ ref: "refs/tags/qm-v2.0.0" }]);
+		if (u.includes("/commits/x-v1.1.0")) return Response.json({ sha: "b".repeat(40) });
+		if (u.endsWith("/qm-v2.0.0/qm/dist/qm.json")) return new Response("pkg");
+		return new Response("", { status: 404 });
+	}) as unknown as typeof fetch;
+	const src: Listings = { name: "m", extensions: [
+		{ id: "x", kind: "server", repo: "o/r", dir: "x", ref: "x-v1.0.0", commit: C },
+		{ id: "old", kind: "server", repo: "o/r", dir: "old", ref: "old-v0.2.0", commit: C },
+		{ id: "qm", repo: "o/r", dir: "qm", ref: "qm-v1.0.0", sha256: H },
+	] };
+	expect(await bump(src, { fetch: fake })).toEqual(["x x-v1.0.0 -> x-v1.1.0", "qm qm-v1.0.0 -> qm-v2.0.0"]);
+	expect(src.extensions[0]).toMatchObject({ ref: "x-v1.1.0", commit: "b".repeat(40) });
+	expect(src.extensions[1]).toMatchObject({ ref: "old-v0.2.0", commit: C });
+	expect(src.extensions[2]).toMatchObject({ ref: "qm-v2.0.0", sha256: sha256Hex("pkg") });
+});
