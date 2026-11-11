@@ -7,8 +7,8 @@
       "kind": "server",
       "repo": "dohwi/pipaya-extensions",
       "dir": "guard",
-      "ref": "guard-v0.2.2",
-      "commit": "a107de0ebb22855e3cf1c03304ea8e1194fb4d1d"
+      "ref": "guard-v0.2.3",
+      "commit": "2383616aafc144bd423144bc6f197ecd9ab230ff"
     },
     {
       "id": "quota-monitor",
@@ -30,8 +30,8 @@
       "kind": "server",
       "repo": "dohwi/pipaya-extensions",
       "dir": "server-sync",
-      "ref": "server-sync-v0.8.0",
-      "commit": "313e2c9988a87c63203cf7ccef2cd58315d0471b"
+      "ref": "server-sync-v0.8.2",
+      "commit": "1c02c882fc402612ac80049f8d330311eec6e6ba"
     }
   ]
 }

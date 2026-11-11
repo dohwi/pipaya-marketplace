@@ -11,16 +11,16 @@
         "en": "Stops a bash command before it runs when it would wipe / or ~, format or overwrite a disk, fork-bomb the machine or change the permissions of the whole disk. Each family can be switched off below.",
         "ko": "bash 명령이 /·~ 전체 삭제, 디스크 포맷·덮어쓰기, 포크 폭탄, 디스크 전체 권한 변경을 하려 하면 실행 전에 막습니다. 항목별로 아래에서 끌 수 있습니다."
       },
-      "version": "0.2.2",
+      "version": "0.2.3",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/guard-v0.2.2/guard",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/guard-v0.2.3/guard",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
         "dir": "guard",
-        "ref": "guard-v0.2.2",
-        "commit": "a107de0ebb22855e3cf1c03304ea8e1194fb4d1d"
+        "ref": "guard-v0.2.3",
+        "commit": "2383616aafc144bd423144bc6f197ecd9ab230ff"
       }
     },
     {
@@ -72,16 +72,16 @@
         "en": "Mirrors a primary pipaya server's settings onto this one. Connect with the primary's address and a one-time code (or the app's copied link), then pick what to pull: models, workdir, MCP servers, skills, tools, history, and optionally extension settings (credentials never leave the primary).",
         "ko": "기준 서버의 설정을 이 서버로 복제합니다. 기준 서버 주소와 연결 코드(또는 앱의 [링크 복사] 링크)로 연결하고, 모델·작업 디렉터리·MCP 서버·스킬·도구·대화 보관·확장 설정 중 가져올 항목을 고릅니다. 토큰 같은 비밀값은 넘어오지 않습니다."
       },
-      "version": "0.8.0",
+      "version": "0.8.2",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/server-sync-v0.8.0/server-sync",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/server-sync-v0.8.2/server-sync",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
         "dir": "server-sync",
-        "ref": "server-sync-v0.8.0",
-        "commit": "313e2c9988a87c63203cf7ccef2cd58315d0471b"
+        "ref": "server-sync-v0.8.2",
+        "commit": "1c02c882fc402612ac80049f8d330311eec6e6ba"
       }
     }
   ]
