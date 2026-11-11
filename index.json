@@ -67,21 +67,21 @@
       "id": "server-sync",
       "kind": "server",
       "name": "Server Sync",
-      "description": "Mirrors a primary pipaya server's settings onto this one: model connections, defaults, MCP servers, skills, tools.",
+      "description": "Mirrors a primary pipaya server's settings onto this one. The follower picks what to pull: models, workdir, MCP servers, skills, tools, history, and optionally extension settings (credentials excluded).",
       "descriptions": {
-        "en": "Mirrors a primary pipaya server's settings onto this one: model connections, defaults, MCP servers, skills, tools. The primary shows its address and token to copy; a follower needs only the address.",
-        "ko": "기준 서버의 설정(모델 연결, 기본값, MCP 서버, 스킬, 도구)을 이 서버로 그대로 복제합니다. 기준 서버는 자기 주소와 토큰을 화면에 보여주고, 팔로워는 주소만 넣으면 연결됩니다."
+        "en": "Mirrors a primary pipaya server's settings onto this one. Connect with the primary's address and a one-time code (or the app's copied link), then pick what to pull: models, workdir, MCP servers, skills, tools, history, and optionally extension settings (credentials never leave the primary).",
+        "ko": "기준 서버의 설정을 이 서버로 복제합니다. 기준 서버 주소와 연결 코드(또는 앱의 [링크 복사] 링크)로 연결하고, 모델·작업 디렉터리·MCP 서버·스킬·도구·대화 보관·확장 설정 중 가져올 항목을 고릅니다. 토큰 같은 비밀값은 넘어오지 않습니다."
       },
-      "version": "0.6.0",
+      "version": "0.8.0",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/server-sync-v0.6.0/server-sync",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/server-sync-v0.8.0/server-sync",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
         "dir": "server-sync",
-        "ref": "server-sync-v0.6.0",
-        "commit": "c6eebe081c14024279221468e24bf39c7e51a4eb"
+        "ref": "server-sync-v0.8.0",
+        "commit": "313e2c9988a87c63203cf7ccef2cd58315d0471b"
       }
     }
   ]
