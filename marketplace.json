@@ -30,8 +30,8 @@
       "kind": "server",
       "repo": "dohwi/pipaya-extensions",
       "dir": "server-sync",
-      "ref": "server-sync-v0.9.0",
-      "commit": "a443b3ef90fbed5124eeb3519524f3443eff9f21"
+      "ref": "server-sync-v0.10.0",
+      "commit": "ec6d6e5b9da337413be6e90952884c3407521566"
     }
   ]
 }
