@@ -67,21 +67,21 @@
       "id": "server-sync",
       "kind": "server",
       "name": "Server Sync",
-      "description": "Mirrors a primary pipaya server onto this one: settings, and optionally installed server and client extensions, extension settings, skills, helper roles, AGENTS.md and model providers (secrets never leave the primary).",
+      "description": "Makes a pipaya server match another: its settings and, box by box, installed extensions, extension settings, skill files, helper roles, AGENTS.md and model providers (secrets never leave the primary).",
       "descriptions": {
-        "en": "Makes this server match a primary pipaya server. Connect with the link from the primary's Devices tab, then pick what to pull: settings (models, workdir, MCP, skills on/off, tools, history), installed server and client extensions with their settings, skill files, helper roles, AGENTS.md and model providers. Tokens, passwords and API keys never leave the primary.",
-        "ko": "이 서버를 기준 서버와 똑같이 맞춥니다. 기준 서버의 기기 탭에서 받은 연결 링크로 연결하고, 가져올 항목을 고르세요. 설정(모델·작업 디렉터리·MCP·스킬 켜기/끄기·도구·대화 보관)뿐 아니라 설치된 서버·클라이언트 확장과 그 설정, 스킬 파일, 도우미 역할, AGENTS.md, 모델 연결까지 가져올 수 있습니다. 토큰·비밀번호·API 키는 넘어오지 않습니다."
+        "en": "Makes this server match a primary pipaya server. Connect with the link from the primary's Devices tab, then pick what to pull: settings (models, workdir, MCP, skills on/off, tools, history), installed extensions with their settings, skill files, helper roles, AGENTS.md and model providers. Tokens, passwords and API keys never leave the primary.",
+        "ko": "이 서버를 기준 서버와 똑같이 맞춥니다. 기준 서버의 기기 탭에서 받은 연결 링크로 연결하고, 가져올 항목을 고르세요. 설정(모델·작업 디렉터리·MCP·스킬 켜기/끄기·도구·대화 보관)뿐 아니라 설치된 확장과 그 설정, 스킬 파일, 도우미 역할, AGENTS.md, 모델 연결까지 가져올 수 있습니다. 토큰·비밀번호·API 키는 넘어오지 않습니다."
       },
-      "version": "0.11.0",
+      "version": "0.12.0",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/server-sync-v0.11.0/server-sync",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/server-sync-v0.12.0/server-sync",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
         "dir": "server-sync",
-        "ref": "server-sync-v0.11.0",
-        "commit": "9fab6c9943a7edca2427f45e4f06e8526bfa0972"
+        "ref": "server-sync-v0.12.0",
+        "commit": "5804fc7832b828b1096e4932102246601ee348ad"
       }
     }
   ]
