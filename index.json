@@ -72,16 +72,16 @@
         "en": "Makes this server match a primary pipaya server. Connect with the link from the primary's Devices tab, then pick what to pull: app settings (models, workdir, MCP, skills on/off, tools, history), extensions with their settings, skills, helper roles and AGENTS.md, and model connections. API keys and tokens come over only if you turn that on here and the primary allows it.",
         "ko": "이 서버를 기준 서버와 똑같이 맞춥니다. 기준 서버의 기기 탭에서 받은 연결 링크로 연결하고, 가져올 항목을 고르세요. 앱 설정(모델·작업 디렉터리·MCP·스킬 켜기/끄기·도구·대화 보관), 확장과 그 설정, 스킬·도우미 역할·AGENTS.md, 모델 연결을 가져올 수 있습니다. API 키·토큰은 여기서 켜고 기준 서버도 허용할 때만 넘어옵니다."
       },
-      "version": "0.15.1",
+      "version": "0.16.0",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/server-sync-v0.15.1/server-sync",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/server-sync-v0.16.0/server-sync",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
         "dir": "server-sync",
-        "ref": "server-sync-v0.15.1",
-        "commit": "5dc478c6a0a8a7b7ec931fa59fd9c0e8149d15d9"
+        "ref": "server-sync-v0.16.0",
+        "commit": "08c96c5e36321eab77d13ec9928055fe0570b6b3"
       }
     }
   ]
