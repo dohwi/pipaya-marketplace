@@ -3,27 +3,11 @@
   "description": "Community extensions for pipaya",
   "extensions": [
     {
-      "id": "guard",
-      "kind": "server",
-      "repo": "dohwi/pipaya-extensions",
-      "dir": "guard",
-      "ref": "guard-v0.2.3",
-      "commit": "2383616aafc144bd423144bc6f197ecd9ab230ff"
-    },
-    {
       "id": "quota-monitor",
       "repo": "dohwi/pipaya-extensions",
       "dir": "quota-monitor",
       "ref": "quota-monitor-v0.6.6",
       "sha256": "54f4aa9f35c6b343ff15cc0a9be44a9d8c71d39edd4b916d0551c04de1ab073f"
-    },
-    {
-      "id": "prompt-templates",
-      "kind": "server",
-      "repo": "dohwi/pipaya-extensions",
-      "dir": "prompt-templates",
-      "ref": "prompt-templates-v0.2.1",
-      "commit": "33f824ff8e8c55e5f94fb0ee09c0e8ccdcb9a1cc"
     },
     {
       "id": "server-sync",

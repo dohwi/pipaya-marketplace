@@ -24,9 +24,8 @@
 
 | 확장 | 종류 | 버전 | 설명 |
 |---|---|---|---|
-| [guard](https://github.com/dohwi/pipaya-extensions/tree/main/guard) | server | 0.1.2 | 위험한 셸 명령(`rm -rf /`, `mkfs`, 포크 폭탄)을 실행 전에 차단 |
-| [prompt-templates](https://github.com/dohwi/pipaya-extensions/tree/main/prompt-templates) | server | 0.2.1 | 긴 프롬프트를 Markdown 파일로 저장해 `/prompt:이름`으로 호출 |
-| [quota-monitor](https://github.com/dohwi/pipaya-extensions/tree/main/quota-monitor) | client | 0.6.1 | Claude, GPT, Antigravity 잔량 게이지를 헤더에 표시 (`ui-components` 권한 필요) |
+| [quota-monitor](https://github.com/dohwi/pipaya-extensions/tree/main/quota-monitor) | client | 0.6.6 | Claude, GPT, Antigravity 잔량 게이지를 헤더에 표시 (`ui-components` 권한 필요) |
+| [server-sync](https://github.com/dohwi/pipaya-extensions/tree/main/server-sync) | server | 0.17.1 | 두 pipaya 서버의 설정·확장·스킬·모델 연결을 동기화 |
 
 ## 특징
 
@@ -45,11 +44,11 @@ pipaya 앱에서는 **설정 → 확장 → 마켓플레이스**에서 설치합
 git clone https://github.com/dohwi/pipaya-marketplace && cd pipaya-marketplace
 
 bun scripts/market.ts list
-bun scripts/market.ts install guard          # 확장 폴더 하나를 ~/.pipaya/extensions/guard 로 복사
+bun scripts/market.ts install server-sync    # 확장 폴더 하나를 ~/.pipaya/extensions/server-sync 로 복사
 curl -X POST -H "Authorization: Bearer $ADMIN_TOKEN" http://<server>/server-extensions/reload
 
 bun scripts/market.ts install quota-monitor  # quota-monitor.json 저장 후 pipaya 앱에서 가져오기
-bun scripts/market.ts remove guard
+bun scripts/market.ts remove server-sync
 ```
 
 `PIPAYA_MARKET_URL`에 `index.json`의 raw URL을 넣으면 원격 카탈로그를 읽습니다. 서버 확장 설치에는 여전히 로컬 clone이 필요합니다.

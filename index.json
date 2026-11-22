@@ -3,27 +3,6 @@
   "description": "Community extensions for pipaya",
   "extensions": [
     {
-      "id": "guard",
-      "kind": "server",
-      "name": "Guard",
-      "description": "Blocks destructive shell commands (wiping / or ~, formatting or overwriting a disk, fork bombs) before they run.",
-      "descriptions": {
-        "en": "Stops a bash command before it runs when it would wipe / or ~, format or overwrite a disk, fork-bomb the machine or change the permissions of the whole disk. Each family can be switched off below.",
-        "ko": "bash 명령이 /·~ 전체 삭제, 디스크 포맷·덮어쓰기, 포크 폭탄, 디스크 전체 권한 변경을 하려 하면 실행 전에 막습니다. 항목별로 아래에서 끌 수 있습니다."
-      },
-      "version": "0.2.3",
-      "author": "dohwi",
-      "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/guard-v0.2.3/guard",
-      "source": {
-        "type": "git",
-        "repo": "dohwi/pipaya-extensions",
-        "dir": "guard",
-        "ref": "guard-v0.2.3",
-        "commit": "2383616aafc144bd423144bc6f197ecd9ab230ff"
-      }
-    },
-    {
       "id": "quota-monitor",
       "kind": "client",
       "name": "Quota Monitor",
@@ -40,27 +19,6 @@
         "type": "url",
         "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/quota-monitor-v0.6.6/quota-monitor/dist/quota-monitor.json",
         "sha256": "54f4aa9f35c6b343ff15cc0a9be44a9d8c71d39edd4b916d0551c04de1ab073f"
-      }
-    },
-    {
-      "id": "prompt-templates",
-      "kind": "server",
-      "name": "Prompt Templates",
-      "description": "Save a long prompt as a Markdown file and call it with `/prompt:name arguments`.",
-      "descriptions": {
-        "en": "Save a long prompt as a Markdown file and call it with `/prompt:name arguments`.",
-        "ko": "긴 프롬프트를 Markdown 파일로 저장해 두고 `/prompt:이름 인자`로 불러 씁니다."
-      },
-      "version": "0.2.1",
-      "author": "dohwi",
-      "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/prompt-templates-v0.2.1/prompt-templates",
-      "source": {
-        "type": "git",
-        "repo": "dohwi/pipaya-extensions",
-        "dir": "prompt-templates",
-        "ref": "prompt-templates-v0.2.1",
-        "commit": "33f824ff8e8c55e5f94fb0ee09c0e8ccdcb9a1cc"
       }
     },
     {

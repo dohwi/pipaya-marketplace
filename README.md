@@ -24,9 +24,8 @@ The public catalog of [pipaya](https://github.com/dohwi/pipaya) extensions. `mar
 
 | Extension | Kind | Version | What it does |
 |---|---|---|---|
-| [guard](https://github.com/dohwi/pipaya-extensions/tree/main/guard) | server | 0.1.2 | Blocks destructive shell commands (`rm -rf /`, `mkfs`, fork bombs) before they run |
-| [prompt-templates](https://github.com/dohwi/pipaya-extensions/tree/main/prompt-templates) | server | 0.2.1 | Save a long prompt as a Markdown file and call it with `/prompt:name` |
-| [quota-monitor](https://github.com/dohwi/pipaya-extensions/tree/main/quota-monitor) | client | 0.6.1 | Claude, GPT and Antigravity quota gauges in the header (needs the `ui-components` permission) |
+| [quota-monitor](https://github.com/dohwi/pipaya-extensions/tree/main/quota-monitor) | client | 0.6.6 | Claude, GPT and Antigravity quota gauges in the header (needs the `ui-components` permission) |
+| [server-sync](https://github.com/dohwi/pipaya-extensions/tree/main/server-sync) | server | 0.17.1 | Keeps two pipaya servers in step (settings, extensions, skills, models) |
 
 ## Features
 
@@ -45,11 +44,11 @@ Requires [Bun](https://bun.sh).
 git clone https://github.com/dohwi/pipaya-marketplace && cd pipaya-marketplace
 
 bun scripts/market.ts list
-bun scripts/market.ts install guard          # copies one extension's folder to ~/.pipaya/extensions/guard
+bun scripts/market.ts install server-sync    # copies one extension's folder to ~/.pipaya/extensions/server-sync
 curl -X POST -H "Authorization: Bearer $ADMIN_TOKEN" http://<server>/server-extensions/reload
 
 bun scripts/market.ts install quota-monitor  # saves quota-monitor.json, import it in the pipaya app
-bun scripts/market.ts remove guard
+bun scripts/market.ts remove server-sync
 ```
 
 Set `PIPAYA_MARKET_URL` to a raw `index.json` URL to read a remote catalog.
