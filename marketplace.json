@@ -6,16 +6,16 @@
       "id": "quota-monitor",
       "repo": "dohwi/pipaya-extensions",
       "dir": "quota-monitor",
-      "ref": "quota-monitor-v0.6.6",
-      "sha256": "54f4aa9f35c6b343ff15cc0a9be44a9d8c71d39edd4b916d0551c04de1ab073f"
+      "ref": "quota-monitor-v0.6.7",
+      "sha256": "76e4631c705f22ac6a19a3b4dae78dd44381f9b38f6a0fd434b71908b68df2f8"
     },
     {
       "id": "server-sync",
       "kind": "server",
       "repo": "dohwi/pipaya-extensions",
       "dir": "server-sync",
-      "ref": "server-sync-v0.17.1",
-      "commit": "5daedf7e1261e3903b3822b1a269ea25b38e96a4"
+      "ref": "server-sync-v0.18.0",
+      "commit": "60c460b5da529dc86027d006e812e1c4905e6775"
     }
   ]
 }

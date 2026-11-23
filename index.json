@@ -11,14 +11,14 @@
         "en": "Shows the full upstream quota of Claude, GPT, AGY (4) and AGY (3.8) as ring gauges in the header with a popover. For Antigravity, the outer ring is Gemini and the inner ring is Claude/GPT.",
         "ko": "Claude · GPT · AGY (4) · AGY (3.8)의 upstream 전체 잔량을 상단 바 원형 게이지와 팝오버로 표시합니다. Antigravity는 바깥 Gemini · 안쪽 Claude/GPT 잔량입니다."
       },
-      "version": "0.6.6",
+      "version": "0.6.7",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/quota-monitor-v0.6.6/quota-monitor",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/quota-monitor-v0.6.7/quota-monitor",
       "source": {
         "type": "url",
-        "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/quota-monitor-v0.6.6/quota-monitor/dist/quota-monitor.json",
-        "sha256": "54f4aa9f35c6b343ff15cc0a9be44a9d8c71d39edd4b916d0551c04de1ab073f"
+        "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/quota-monitor-v0.6.7/quota-monitor/dist/quota-monitor.json",
+        "sha256": "76e4631c705f22ac6a19a3b4dae78dd44381f9b38f6a0fd434b71908b68df2f8"
       }
     },
     {
@@ -30,16 +30,16 @@
         "en": "Makes this server match a primary pipaya server. Connect with the link from the primary's Devices tab, then pick what to pull: app settings (models, workdir, MCP, skills on/off, tools, history), extensions with their settings, skills, helper roles and AGENTS.md, and model connections. API keys and tokens come over only if you turn that on here and the primary allows it.",
         "ko": "이 서버를 기준 서버와 똑같이 맞춥니다. 기준 서버의 기기 탭에서 받은 연결 링크로 연결하고, 가져올 항목을 고르세요. 앱 설정(모델·작업 디렉터리·MCP·스킬 켜기/끄기·도구·대화 보관), 확장과 그 설정, 스킬·도우미 역할·AGENTS.md, 모델 연결을 가져올 수 있습니다. API 키·토큰은 여기서 켜고 기준 서버도 허용할 때만 넘어옵니다."
       },
-      "version": "0.17.1",
+      "version": "0.18.0",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/server-sync-v0.17.1/server-sync",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/server-sync-v0.18.0/server-sync",
       "source": {
         "type": "git",
         "repo": "dohwi/pipaya-extensions",
         "dir": "server-sync",
-        "ref": "server-sync-v0.17.1",
-        "commit": "5daedf7e1261e3903b3822b1a269ea25b38e96a4"
+        "ref": "server-sync-v0.18.0",
+        "commit": "60c460b5da529dc86027d006e812e1c4905e6775"
       }
     }
   ]
