@@ -6,19 +6,19 @@
       "id": "quota-monitor",
       "kind": "client",
       "name": "Quota Monitor",
-      "description": "Claude · GPT · AGY (4) · AGY (3.8)의 upstream 전체 잔량을 원형 게이지와 팝오버로 표시합니다(데스크톱 상단 바, 모바일 사이드바 하단). Antigravity는 바깥 Gemini · 안쪽 Claude/GPT 잔량입니다.",
+      "description": "Claude · GPT · AGY (4) · AGY (3.8)의 upstream 전체 잔량을 원형 게이지와 팝오버로 표시합니다(데스크톱 상단 바, 모바일 사이드바 상단). Antigravity는 바깥 Gemini · 안쪽 Claude/GPT 잔량입니다.",
       "descriptions": {
         "en": "Shows the full upstream quota of Claude, GPT, AGY (4) and AGY (3.8) as ring gauges in the header with a popover. For Antigravity, the outer ring is Gemini and the inner ring is Claude/GPT.",
         "ko": "Claude · GPT · AGY (4) · AGY (3.8)의 upstream 전체 잔량을 상단 바 원형 게이지와 팝오버로 표시합니다. Antigravity는 바깥 Gemini · 안쪽 Claude/GPT 잔량입니다."
       },
-      "version": "0.7.1",
+      "version": "0.7.2",
       "author": "dohwi",
       "license": "MIT",
-      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/quota-monitor-v0.7.1/quota-monitor",
+      "homepage": "https://github.com/dohwi/pipaya-extensions/tree/quota-monitor-v0.7.2/quota-monitor",
       "source": {
         "type": "url",
-        "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/quota-monitor-v0.7.1/quota-monitor/dist/quota-monitor.json",
-        "sha256": "f7ef6d8cee20e647d3a4678f0cf6ee01b1a1febec50462901069ec756da7468a"
+        "url": "https://raw.githubusercontent.com/dohwi/pipaya-extensions/quota-monitor-v0.7.2/quota-monitor/dist/quota-monitor.json",
+        "sha256": "d49513bbde78e75a9dfc7e768661636977c2be935d4f4ac37abf2b49267c2796"
       }
     },
     {
