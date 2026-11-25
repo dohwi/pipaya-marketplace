@@ -6,8 +6,8 @@
       "id": "quota-monitor",
       "repo": "dohwi/pipaya-extensions",
       "dir": "quota-monitor",
-      "ref": "quota-monitor-v0.8.3",
-      "sha256": "b18bec045b69b74383e67b1b1afb97a765238e293991dd4da6f38bd6069230e5"
+      "ref": "quota-monitor-v0.8.4",
+      "sha256": "191bf238561ebe84a431e118664119da4edf874a80ee2d7e7279e0867cbab5c6"
     },
     {
       "id": "server-sync",
